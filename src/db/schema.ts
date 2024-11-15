@@ -1,5 +1,8 @@
+import { BodyAnalysis } from "@/schemas/openai-vision";
 import {
+  decimal,
   integer,
+  jsonb,
   pgTable,
   primaryKey,
   text,
@@ -58,3 +61,36 @@ export const verificationTokens = pgTable(
     }),
   })
 );
+
+export const bodyAnalysis = pgTable("body_analysis", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  analysisData: jsonb("analysis_data").notNull().$type<BodyAnalysis>(),
+  aestheticsScore: decimal("aesthetics_score", {
+    precision: 2,
+    scale: 1,
+  }).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .notNull()
+    .$onUpdate(() => new Date()),
+});
+
+export const photos = pgTable("photos", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  imageUrl: text("image_url").notNull(),
+  bodyAnalysisId: uuid("body_analysis_id").references(() => bodyAnalysis.id, {
+    onDelete: "cascade",
+  }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .notNull()
+    .$onUpdate(() => new Date()),
+});
