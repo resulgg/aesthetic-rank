@@ -5,11 +5,11 @@ interface TypographyPProps extends HTMLAttributes<HTMLParagraphElement> {
   children: React.ReactNode;
 }
 
-export function TypographyP({
+export const TypographyP = ({
   children,
   className,
   ...props
-}: TypographyPProps) {
+}: TypographyPProps) => {
   return (
     <p
       className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
@@ -18,4 +18,4 @@ export function TypographyP({
       {children}
     </p>
   );
-}
+};

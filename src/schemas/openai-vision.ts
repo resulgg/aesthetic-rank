@@ -9,7 +9,22 @@ export enum PostureType {
   SwayBack = "Sway Back",
   FlatBack = "Flat Back",
 }
-
+export enum WarriorType {
+  Spartan = "Spartan",
+  Persian = "Persian",
+  Viking = "Viking",
+  Mongol = "Mongol",
+  Samurai = "Samurai",
+  Aztec = "Aztec",
+  Ottoman = "Ottoman",
+  Roman = "Roman",
+  Celtic = "Celtic",
+  Zulu = "Zulu",
+  Sumo = "Sumo",
+  Ninja = "Ninja",
+  Berserker = "Berserker",
+  Scout = "Scout",
+}
 export enum MuscleImbalance {
   None = "None",
   Minimal = "Minimal",
@@ -36,6 +51,22 @@ export enum SkeletalStructure {
   FrameWideHips = "Frame Wide Hips",
   FrameLongLimbs = "Frame Long Limbs",
   FrameShortLimbs = "Frame Short Limbs",
+  CompactFrame = "Compact Frame",
+  ElongatedFrame = "Elongated Frame",
+  BroadShoulders = "Broad Shoulders",
+  NarrowShoulders = "Narrow Shoulders",
+  HighHipRatio = "High Hip Ratio",
+  LowHipRatio = "Low Hip Ratio",
+  ProportionalFrame = "Proportional Frame",
+  DisproportionalFrame = "Disproportional Frame",
+  RobustBoneStructure = "Robust Bone Structure",
+  DelicateBoneStructure = "Delicate Bone Structure",
+  BalancedFrame = "Balanced Frame",
+  UnbalancedFrame = "Unbalanced Frame",
+  StrongJoints = "Strong Joints",
+  FlexibleJoints = "Flexible Joints",
+  DenseBonesStructure = "Dense Bones Structure",
+  LightBonesStructure = "Light Bones Structure",
 }
 
 export enum VascularityType {
@@ -92,33 +123,40 @@ export enum AestheticRank {
   Beginner = "Bronze-Tier Aesthetics",
   Starting = "Iron-Tier Aesthetics",
 }
-
-const measurementSchema = z.object({
+export enum BmiType {
+  Underweight = "Underweight",
+  Normal = "Normal",
+  Overweight = "Overweight",
+  Obese = "Obese",
+}
+export enum Gender {
+  Male = "Male",
+  Female = "Female",
+}
+const bodySchema = z.object({
   score: z.number(),
-  size: z.number(),
-  description: z.string(),
+  evaluation: z.string(),
 });
 
 const ratioSchema = z.object({
   ratio: z.number(),
-  description: z.string(),
+  evaluation: z.string(),
 });
 
-export const bodyAnalysisSchema = z.object({
-  measurements: z.object({
-    arms: measurementSchema,
-    shoulders: measurementSchema,
-    trapezius: measurementSchema,
-    forearms: measurementSchema,
-    calves: measurementSchema,
-    neck: measurementSchema,
-    chest: measurementSchema,
-    abs: measurementSchema,
-    lats: measurementSchema,
-    thighs: measurementSchema,
-    hips: measurementSchema,
-    waist: measurementSchema,
-    back: measurementSchema,
+export const analysisDataSchema = z.object({
+  body: z.object({
+    arms: bodySchema,
+    shoulders: bodySchema,
+    trapezius: bodySchema,
+    forearms: bodySchema,
+    calves: bodySchema,
+    chest: bodySchema,
+    abs: bodySchema,
+    lats: bodySchema,
+    thighs: bodySchema,
+    hips: bodySchema,
+    waist: bodySchema,
+    back: bodySchema,
   }),
   ratios: z.object({
     waistToHip: ratioSchema,
@@ -131,42 +169,42 @@ export const bodyAnalysisSchema = z.object({
   bodyFat: z.object({
     score: z.number(),
     percentage: z.string(),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   posture: z.object({
     score: z.number(),
     type: z.nativeEnum(PostureType),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   muscleImbalance: z.object({
     score: z.number(),
     imbalance: z.nativeEnum(MuscleImbalance),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   skeletal: z.object({
     score: z.number(),
-    structure: z.nativeEnum(SkeletalStructure),
-    description: z.string(),
+    structure: z.array(z.nativeEnum(SkeletalStructure)),
+    evaluation: z.string(),
   }),
   vascularity: z.object({
     score: z.number(),
     type: z.nativeEnum(VascularityType),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   skinHealth: z.object({
     score: z.number(),
     type: z.nativeEnum(SkinHealthType),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   bmi: z.object({
-    score: z.number(),
+    type: z.nativeEnum(BmiType),
     index: z.string(),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   somatotype: z.object({
     score: z.number(),
     classification: z.nativeEnum(SomatotypeClassification),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   bodySymmetry: z.object({
     score: z.number(),
@@ -176,17 +214,12 @@ export const bodyAnalysisSchema = z.object({
   geneticPotential: z.object({
     score: z.number(),
     potential: z.nativeEnum(GeneticPotential),
-    description: z.string(),
-  }),
-  goldenRatio: z.object({
-    score: z.number(),
-    ratio: z.number(),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   aesthetic: z.object({
     score: z.number(),
     rank: z.nativeEnum(AestheticRank),
-    description: z.string(),
+    evaluation: z.string(),
   }),
   strengths: z.object({
     points: z.array(z.string()),
@@ -194,6 +227,29 @@ export const bodyAnalysisSchema = z.object({
   weaknesses: z.object({
     points: z.array(z.string()),
   }),
+  height: z.number(),
+  weight: z.number(),
+  isNsfw: z.object({
+    isNsfw: z.boolean(),
+    reason: z.string(),
+  }),
+  isNatural: z.object({
+    isNatural: z.boolean(),
+    reason: z.string(),
+  }),
+  sportSuitability: z.object({
+    recommendedSport: z.array(z.string()),
+    evaluation: z.string(),
+  }),
+  bodyAge: z.object({
+    age: z.number(),
+    evaluation: z.string(),
+  }),
+  warriorType: z.object({
+    type: z.nativeEnum(WarriorType),
+    evaluation: z.string(),
+  }),
+  gender: z.nativeEnum(Gender),
 });
 
-export type BodyAnalysis = z.infer<typeof bodyAnalysisSchema>;
+export type analysisDataType = z.infer<typeof analysisDataSchema>;

@@ -5,20 +5,18 @@ interface TypographyH2Props extends HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
 }
 
-export function TypographyH2({
+export const TypographyH2 = ({
   children,
   className,
   ...props
-}: TypographyH2Props) {
-  return (
-    <h2
-      className={cn(
-        "scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </h2>
-  );
-}
+}: TypographyH2Props) => (
+  <h2
+    className={cn(
+      "scroll-m-20 text-3xl font-semibold tracking-tight ",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </h2>
+);

@@ -73,8 +73,8 @@ const ResponsiveDialog = ({
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
-        <ScrollArea className="h-[80vh] w-full rounded-md">
-          <div className="p-8">
+        <ScrollArea className="h-[80vh] w-full rounded-lg">
+          <div className="px-8 py-4">
             <DrawerHeader className="mb-4 mt-2 gap-0 space-y-0 p-0">
               <DrawerTitle className="mb-0 border-b-0 text-4xl font-bold">
                 {title}

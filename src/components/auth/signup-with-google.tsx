@@ -10,7 +10,7 @@ const SignupWithGoogle = () => {
   const [isLoading, setIsLoading] = useState(false);
   const onSignupWithGoogle = async () => {
     setIsLoading(true);
-    await signIn("google", { redirectTo: "/dashboard" });
+    await signIn("google", { redirectTo: "/analysis" });
   };
   return (
     <Button

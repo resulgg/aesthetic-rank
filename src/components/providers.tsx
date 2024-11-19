@@ -8,7 +8,7 @@ interface ProvidersProps {
   children: React.ReactNode;
 }
 
-function Providers({ children }: ProvidersProps) {
+const Providers = ({ children }: ProvidersProps) => {
   return (
     <SessionProvider>
       <ThemeProvider
@@ -21,6 +21,6 @@ function Providers({ children }: ProvidersProps) {
       </ThemeProvider>
     </SessionProvider>
   );
-}
+};
 
 export default Providers;

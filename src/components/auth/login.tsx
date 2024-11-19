@@ -1,6 +1,6 @@
 import Link from "next/link";
+import SignupWithEmail from "@/components/auth/signup-with-email";
 import SignupWithGoogle from "@/components/auth/signup-with-google";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,8 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 
 const LoginPage = () => {
@@ -23,16 +21,7 @@ const LoginPage = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="you@example.com" />
-          </div>
-
-          <Button className="w-full" size="lg">
-            Continue with Email
-          </Button>
-        </div>
+        <SignupWithEmail />
 
         <div className="relative">
           <div className="absolute inset-0 flex items-center">

@@ -1,24 +1,27 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
+import { NAV_LINKS } from "@/constants/nav-links";
 import { signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import ResponsiveDialog from "@/components/ui/responsive-dialog";
+import ThemeToggle from "../theme-toggle";
 
 const UserButton = () => {
   const { data: session } = useSession();
-  const router = useRouter();
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const handleLogout = () => {
+    signOut();
+    setDialogOpen(false);
+  };
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger>
-        <Avatar>
+    <ResponsiveDialog
+      trigger={
+        <Avatar className="h-12 w-12 cursor-pointer rounded-full">
           <AvatarImage src={session?.user?.image || ""} />
           <AvatarFallback>
             {`${session?.user?.name?.split(" ")[0]?.[0] || "🐼"}${
@@ -26,26 +29,36 @@ const UserButton = () => {
             }`}
           </AvatarFallback>
         </Avatar>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="mt-2 text-2xl">
-        <DropdownMenuLabel>
-          {session?.user?.name || session?.user?.email}
-        </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => router.push("/dashboard/profile")}>
-          Profile
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => router.push("/dashboard/profile")}>
-          Billing
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => signOut()}
-          className="text-destructive focus:bg-destructive/10 focus:text-destructive"
+      }
+      title={"Menu"}
+      open={isDialogOpen}
+      onOpenChange={setDialogOpen}
+      className="w-full max-w-md"
+    >
+      <div className="flex flex-col gap-4 pt-4">
+        <div className="flex flex-col gap-4">
+          {NAV_LINKS.map(({ label, href }) => (
+            <Button
+              key={href}
+              variant="outline"
+              asChild
+              onClick={() => setDialogOpen(false)}
+              className="w-full"
+            >
+              <Link href={href}>{label}</Link>
+            </Button>
+          ))}
+        </div>
+        <ThemeToggle />
+        <Button
+          onClick={handleLogout}
+          className="text-white dark:text-foreground bg-destructive hover:bg-destructive/80 h-14 w-full text-lg"
         >
           Logout
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        </Button>
+      </div>
+    </ResponsiveDialog>
   );
 };
+
 export default UserButton;

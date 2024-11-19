@@ -5,6 +5,7 @@ export default {
   providers: [google],
   pages: {
     signIn: "/auth/login",
+    signOut: "/",
   },
   callbacks: {
     jwt({ token, user }) {
