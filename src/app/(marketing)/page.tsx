@@ -200,45 +200,6 @@ export default function Home() {
     },
   ];
 
-  const aestheticRanks = [
-    {
-      name: "Supreme Aesthetics",
-      description:
-        "Peak aesthetic excellence with exceptional proportions and development",
-      color: "bg-yellow-100 border-2 border-yellow-400",
-    },
-    {
-      name: "Legendary Aesthetics",
-      description: "Outstanding physique development with remarkable symmetry",
-      color: "bg-purple-100 border-2 border-purple-400",
-    },
-    {
-      name: "Elite Aesthetics",
-      description: "Superior aesthetic achievement with excellent proportions",
-      color: "bg-blue-100 border-2 border-blue-400",
-    },
-    {
-      name: "Gold-Tier Aesthetics",
-      description: "Advanced development with strong overall aesthetics",
-      color: "bg-yellow-50 border-2 border-yellow-500",
-    },
-    {
-      name: "Silver-Tier Aesthetics",
-      description: "Intermediate progress with good development",
-      color: "bg-slate-100 border-2 border-slate-300",
-    },
-    {
-      name: "Bronze-Tier Aesthetics",
-      description: "Developing physique with noticeable improvements",
-      color: "bg-amber-100 border-2 border-amber-600",
-    },
-    {
-      name: "Iron-Tier Aesthetics",
-      description: "Beginning of the aesthetic journey",
-      color: "bg-zinc-100 border-2 border-zinc-500",
-    },
-  ];
-
   const faqs = [
     {
       question: "How accurate is the AI analysis?",

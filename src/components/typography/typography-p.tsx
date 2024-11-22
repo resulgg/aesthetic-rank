@@ -12,7 +12,10 @@ export const TypographyP = ({
 }: TypographyPProps) => {
   return (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      className={cn(
+        "leading-7 [&:not(:first-child)]:mt-6 text-sm md:text-base",
+        className
+      )}
       {...props}
     >
       {children}

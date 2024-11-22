@@ -35,9 +35,14 @@ const AnalysisReview = ({ analysis }: AnalysisReviewProps) => {
   return (
     <div className="space-y-8">
       <div className="space-y-4">
-        <TypographyH3>Details</TypographyH3>
+        <div className="space-y-2">
+          <TypographyH3>Details</TypographyH3>
+          <TypographyP className="text-muted-foreground">
+            Review your physical information before proceeding
+          </TypographyP>
+        </div>
 
-        <div className="flex gap-4 flex-wrap  justify-between items-center border rounded-lg p-6">
+        <div className="flex gap-4 flex-wrap justify-between items-center border rounded-lg p-6">
           <div className="flex flex-col justify-center items-center gap-2">
             <TypographyH4>Height</TypographyH4>
             <p className="text-muted-foreground text-lg">{analysis.height}</p>
@@ -47,7 +52,7 @@ const AnalysisReview = ({ analysis }: AnalysisReviewProps) => {
             <p className="text-muted-foreground text-lg">{analysis.weight}</p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
-            <TypographyH4>Gender</TypographyH4>
+            <TypographyH4>Sex</TypographyH4>
             <p className="text-muted-foreground capitalize text-lg">
               {analysis.gender}
             </p>
@@ -55,7 +60,12 @@ const AnalysisReview = ({ analysis }: AnalysisReviewProps) => {
         </div>
       </div>
       <div className="space-y-4">
-        <TypographyH3>Uploaded Photos</TypographyH3>
+        <div className="space-y-2">
+          <TypographyH3>Uploaded Photos</TypographyH3>
+          <TypographyP className="text-muted-foreground">
+            Your submitted photos for the aesthetic analysis
+          </TypographyP>
+        </div>
 
         {analysis.photos.length === 0 ? (
           <TypographyP className="text-muted-foreground">
@@ -66,7 +76,7 @@ const AnalysisReview = ({ analysis }: AnalysisReviewProps) => {
             {analysis.photos.map((photo) => (
               <div
                 key={photo.id}
-                className="relative aspect-[16/9] h-[300px] md:h-[420px] w-full rounded-lg overflow-hidden border"
+                className="relative aspect-[16/9] h-[250px] md:h-[420px] w-full rounded-lg overflow-hidden border"
               >
                 <Image
                   src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}

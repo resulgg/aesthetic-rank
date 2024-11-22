@@ -97,6 +97,7 @@ export const analysis = pgTable("analysis", {
   isPaid: boolean("is_paid").default(false),
   isNsfw: boolean("is_nsfw").default(false),
   isPublic: boolean("is_public").default(false),
+  isBanned: boolean("is_banned").default(false),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at")
     .defaultNow()

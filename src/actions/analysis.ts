@@ -8,7 +8,9 @@ import { DeleteObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 
-type CreateAnalysisInput = z.infer<typeof analysisFormSchema>;
+type CreateAnalysisInput = z.infer<typeof analysisFormSchema> & {
+  analysisId: string;
+};
 
 // Initialize S3 client with R2 configuration
 const s3Client = new S3Client({
@@ -24,7 +26,7 @@ const s3Client = new S3Client({
  * @param input Analysis data including height, weight and gender
  * @returns Object containing either the created analysis ID or an error
  */
-export const saveAnalysis = async (input: CreateAnalysisInput) => {
+export const updateInfo = async (input: CreateAnalysisInput) => {
   try {
     // Authenticate user
     const session = await auth();
@@ -40,23 +42,27 @@ export const saveAnalysis = async (input: CreateAnalysisInput) => {
         error: "Invalid height, weight or gender.",
       };
     }
-
+    console.log("server action updateInfo", input);
     // Create analysis record with validated data
-    const [createdAnalysis] = await db
-      .insert(analysis)
-      .values({
+    await db
+      .update(analysis)
+      .set({
         height: validationResult.data.height,
         weight: validationResult.data.weight,
         gender: validationResult.data.gender,
-        userId: session.user.id,
       })
-      .returning();
+      .where(
+        and(
+          eq(analysis.id, input.analysisId),
+          eq(analysis.userId, session.user.id)
+        )
+      );
 
-    return { id: createdAnalysis.id };
+    return { message: "Analysis info updated successfully." };
   } catch (error) {
-    console.error("Failed to create analysis:", error);
+    console.error("Failed to update analysis info:", error);
     // Don't expose internal error details to client
-    return { error: "Failed to create analysis." };
+    return { error: "Failed to update analysis info." };
   }
 };
 

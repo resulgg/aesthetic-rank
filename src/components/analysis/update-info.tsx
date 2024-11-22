@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { saveAnalysis } from "@/actions/analysis";
+import { usePathname, useRouter } from "next/navigation";
+import { updateInfo } from "@/actions/analysis";
 import { analysisFormSchema } from "@/schemas/analysis";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -28,13 +28,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-type AnalysisFormValues = z.infer<typeof analysisFormSchema>;
+type AnalysisInfoValues = z.infer<typeof analysisFormSchema>;
 
-function CreateAnalysisForm() {
+function UpdateInfoForm() {
+  const pathname = usePathname();
+  const analysisId = pathname.split("/")[2];
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<AnalysisFormValues>({
+  const form = useForm<AnalysisInfoValues>({
     resolver: zodResolver(analysisFormSchema),
     defaultValues: {
       height: "",
@@ -43,12 +45,13 @@ function CreateAnalysisForm() {
     },
   });
 
-  async function onSubmit(data: AnalysisFormValues) {
+  async function onSubmit(data: AnalysisInfoValues) {
+    console.log("client onSubmit", data);
+    const finalData = { ...data, analysisId };
     if (isSubmitting) return;
-
     try {
       setIsSubmitting(true);
-      const result = await saveAnalysis(data);
+      const result = await updateInfo(finalData);
 
       if ("error" in result) {
         // Handle specific error cases from the server
@@ -60,14 +63,7 @@ function CreateAnalysisForm() {
         toast.error(result.error);
         return;
       }
-
-      if (!result.id) {
-        toast.error("Failed to create analysis - missing ID");
-        return;
-      }
-
-      // Success case - result contains analysis id
-      router.push(`/analysis/${result.id}/photos`);
+      router.push(`/analysis/${analysisId}/guides?sex=${data.gender}`);
     } catch (error) {
       // Handle unexpected errors
       setIsSubmitting(false);
@@ -153,11 +149,7 @@ function CreateAnalysisForm() {
                   <SelectItem value="female">Female</SelectItem>
                 </SelectContent>
               </Select>
-              <FormDescription>
-                Select your biological sex - this helps us provide more accurate
-                analysis based on physiological differences between male and
-                female bodies
-              </FormDescription>
+              <FormDescription>Select your sex</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -166,7 +158,7 @@ function CreateAnalysisForm() {
         <Button
           type="submit"
           className="w-full h-14 text-lg"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !form.formState.isValid}
           aria-label={isSubmitting ? "Creating analysis..." : "Create analysis"}
         >
           {isSubmitting ? (
@@ -186,4 +178,4 @@ function CreateAnalysisForm() {
   );
 }
 
-export default CreateAnalysisForm;
+export default UpdateInfoForm;

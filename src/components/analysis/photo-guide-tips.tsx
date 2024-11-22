@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { TypographyH2 } from "@/components/typography/typography-h2";
 
-const PhotoGuidelines = () => {
+const PhotoGuideTips = () => {
   return (
     <div
       className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 rounded-lg border bg-muted/50"
@@ -75,7 +75,7 @@ const PhotoGuidelines = () => {
           </li>
           <li className="flex items-center gap-2">
             <Layers className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
-            Additional clothing beyond undergarments
+            Outfits that fully cover your body
           </li>
           <li className="flex items-center gap-2">
             <AlertTriangle
@@ -86,7 +86,7 @@ const PhotoGuidelines = () => {
           </li>
           <li className="flex items-center gap-2">
             <ImageOff className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
-            Filtered or edited photos
+            Heavily edited photos
           </li>
         </ul>
       </div>
@@ -94,4 +94,4 @@ const PhotoGuidelines = () => {
   );
 };
 
-export default PhotoGuidelines;
+export default PhotoGuideTips;

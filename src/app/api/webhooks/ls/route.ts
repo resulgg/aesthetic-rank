@@ -43,6 +43,7 @@ export const POST = async (request: NextRequest) => {
   const event = payload.meta.event_name;
   const userId = payload.meta.custom_data.user_id;
   const analysisId = payload.meta.custom_data.analysis_id;
+
   try {
     switch (event) {
       case "order_created":

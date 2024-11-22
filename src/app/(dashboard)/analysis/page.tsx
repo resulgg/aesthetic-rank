@@ -21,7 +21,7 @@ const AnalysisPage = async () => {
 
   if (!analyses || analyses.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[70vh] p-4 sm:p-6 lg:p-8">
+      <div className="flex flex-col items-center justify-center min-h-[70vh] lg:p-8">
         <div className="w-full max-w-[90%] sm:max-w-xl md:max-w-2xl mx-auto text-center space-y-8">
           <div className="space-y-6">
             <TypographyH2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">

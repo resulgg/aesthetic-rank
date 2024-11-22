@@ -16,7 +16,13 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 
-const DeleteAnalysis = ({ analysisId }: { analysisId: string }) => {
+const DeleteAnalysis = ({
+  children,
+  analysisId,
+}: {
+  children: React.ReactNode;
+  analysisId: string;
+}) => {
   const [isPending, startTransition] = useTransition();
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const router = useRouter();
@@ -49,7 +55,7 @@ const DeleteAnalysis = ({ analysisId }: { analysisId: string }) => {
         variant="destructiveGhost"
         aria-label="Delete analysis"
       >
-        {isPending ? "Deleting..." : "Delete"}
+        {isPending ? "Deleting..." : children}
       </Button>
 
       <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>

@@ -238,7 +238,13 @@ Finally, provide:
 2. **Areas for Improvement**: at least 3 primary areas that need attention, including estimated areas if not fully visible, with specific recommendations for each weakness
 3. **Customized Recommendations**: Provide specific, actionable advice based on all the above factors
 
-Remember to clearly indicate when assessments are based on estimations from visible proportions rather than direct observation. All evaluations should maintain accuracy and professionalism while acknowledging the limitations of partial visibility.
+For any body parts not visible in the provided photos, make proportional estimations based on:
+- Overall body structure and composition
+- Visible muscle development patterns
+- Standard anatomical relationships
+- Height, weight and gender proportions
+- Visible symmetry and balance indicators
+These estimations will be clearly marked as proportional assessments rather than direct observations, while maintaining professional accuracy in the evaluation.
 
 Ensure all feedback is detailed, actionable, and tailored to enhance the user's overall aesthetic, with an emphasis on creating a balanced, harmonious physique. Remember that aesthetic excellence is not solely determined by muscle mass but rather by overall visual appeal and proportion.`;
 

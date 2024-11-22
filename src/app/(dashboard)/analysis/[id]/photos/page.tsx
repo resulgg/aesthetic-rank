@@ -3,7 +3,6 @@ import { auth } from "@/auth";
 import { MAX_PHOTOS } from "@/constants/photo";
 import { getAnalysisPhotos } from "@/data/analyze";
 import { InfoIcon } from "lucide-react";
-import PhotoGuidelines from "@/components/analysis/photo-guidelines";
 import PhotoUpload from "@/components/analysis/photo-upload";
 import { UploadedPhotos } from "@/components/analysis/uploaded-photos";
 import { TypographyH1 } from "@/components/typography/typography-h1";
@@ -53,7 +52,6 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
           also sufficient for analysis.
         </AlertDescription>
       </Alert>
-      <PhotoGuidelines />
       <Card className="p-6 pt-6 space-y-4">
         <UploadedPhotos photos={photos} />
         <PhotoUpload

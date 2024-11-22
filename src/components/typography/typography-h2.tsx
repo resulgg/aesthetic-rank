@@ -12,7 +12,7 @@ export const TypographyH2 = ({
 }: TypographyH2Props) => (
   <h2
     className={cn(
-      "scroll-m-20 text-3xl font-semibold tracking-tight ",
+      "scroll-m-20 text-2xl md:text-3xl  font-semibold tracking-tight ",
       className
     )}
     {...props}

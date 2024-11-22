@@ -1,17 +1,9 @@
-import { redirect } from "next/navigation";
-import { auth } from "@/auth";
-import CreateAnalysisForm from "@/components/analysis/create-analysis";
+import UpdateInfoForm from "@/components/analysis/update-info";
 import { TypographyH1 } from "@/components/typography/typography-h1";
 import { TypographyP } from "@/components/typography/typography-p";
 import { Card } from "@/components/ui/card";
 
 export default async function NewAnalysisPage() {
-  const session = await auth();
-
-  if (!session?.user?.id) {
-    redirect("/auth/login");
-  }
-
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="space-y-4">
@@ -24,7 +16,7 @@ export default async function NewAnalysisPage() {
         </TypographyP>
       </div>
       <Card className="p-6 pt-3">
-        <CreateAnalysisForm />
+        <UpdateInfoForm />
       </Card>
     </div>
   );
