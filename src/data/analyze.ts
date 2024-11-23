@@ -12,23 +12,12 @@ export const getAllAnalysisByUserId = async (userId: string) => {
   if (!userId) {
     throw new Error("User ID is required.");
   }
-
   try {
     const userAnalysis = await db.query.analysis.findMany({
       where: eq(analysis.userId, userId),
       orderBy: (analysis, { desc }) => [desc(analysis.createdAt)],
       with: {
         photos: true,
-      },
-      columns: {
-        id: true,
-        createdAt: true,
-        isCompleted: true,
-        gender: true,
-        height: true,
-        weight: true,
-        isNsfw: true,
-        isPublic: true,
       },
     });
 
@@ -59,6 +48,7 @@ export const getAnalysisReviewById = async (id: string, userId: string) => {
         weight: true,
         gender: true,
         id: true,
+        isCompleted: true,
       },
       with: {
         photos: true,
@@ -102,3 +92,41 @@ export async function getAnalysisPhotos(analysisId: string, userId: string) {
     throw new Error("Uploaded analysis photos failed to load.");
   }
 }
+
+export const checkAnalysisStatus = async (
+  analysisId: string,
+  userId: string
+) => {
+  try {
+    const analysisStatus = await db.query.analysis.findFirst({
+      where: and(eq(analysis.id, analysisId), eq(analysis.userId, userId)),
+      columns: {
+        isCompleted: true,
+      },
+    });
+
+    return analysisStatus?.isCompleted;
+  } catch (error) {
+    console.error("Error checking analysis status:", error);
+    throw new Error("Failed to check analysis status.");
+  }
+};
+
+export const getAnalysisInfo = async (analysisId: string, userId: string) => {
+  try {
+    const analysisInfo = await db.query.analysis.findFirst({
+      where: and(eq(analysis.id, analysisId), eq(analysis.userId, userId)),
+      columns: {
+        height: true,
+        weight: true,
+        gender: true,
+        isCompleted: true,
+      },
+    });
+
+    return analysisInfo;
+  } catch (error) {
+    console.error("Error fetching analysis info:", error);
+    throw new Error("Failed to fetch analysis info.");
+  }
+};

@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { MAX_PHOTOS } from "@/constants/photo";
-import { getAnalysisPhotos } from "@/data/analyze";
+import { checkAnalysisStatus, getAnalysisPhotos } from "@/data/analyze";
 import { InfoIcon } from "lucide-react";
 import PhotoUpload from "@/components/analysis/photo-upload";
 import { UploadedPhotos } from "@/components/analysis/uploaded-photos";
@@ -25,7 +25,11 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
   if (!analysisId) {
     notFound();
   }
+  const analysisStatus = await checkAnalysisStatus(analysisId, session.user.id);
 
+  if (analysisStatus) {
+    redirect(`/analysis/${analysisId}`);
+  }
   const photos = await getAnalysisPhotos(analysisId, session.user.id);
   const currentPhotoCount = photos.length;
   const remainingPhotos = Math.max(0, MAX_PHOTOS - currentPhotoCount);

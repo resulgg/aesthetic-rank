@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import db from "@/db";
 import { analysis, photos } from "@/db/schema";
@@ -100,6 +102,7 @@ export const deleteAnalysis = async (analysisId: string) => {
           eq(photos.userId, session.user.id)
         )
       );
+
     if (analysisPhotos.length > 0) {
       for (const photo of analysisPhotos) {
         try {
@@ -134,9 +137,23 @@ export const deleteAnalysis = async (analysisId: string) => {
       .where(
         and(eq(analysis.id, analysisId), eq(analysis.userId, session.user.id))
       );
+    revalidatePath("/analysis");
     return { success: true };
   } catch (error) {
     console.error("Failed to delete analysis:", error);
     return { error: "Failed to delete analysis." };
   }
+};
+
+export const createAnalysis = async (userId: string) => {
+  const newAnalysis = await db
+    .insert(analysis)
+    .values({
+      userId,
+    })
+    .returning({ id: analysis.id });
+  if (!newAnalysis[0]) {
+    return { error: "Failed to create analysis. Try again later." };
+  }
+  redirect(`/analysis/${newAnalysis[0].id}/info`);
 };

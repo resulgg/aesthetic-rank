@@ -29,24 +29,32 @@ import {
 } from "@/components/ui/select";
 
 type AnalysisInfoValues = z.infer<typeof analysisFormSchema>;
+type AnalysisInfo = {
+  height: string | null | undefined;
+  weight: string | null | undefined;
+  gender: "male" | "female" | null | undefined;
+};
 
-function UpdateInfoForm() {
-  const pathname = usePathname();
-  const analysisId = pathname.split("/")[2];
+function UpdateInfoForm({
+  analysisId,
+  analysisInfo,
+}: {
+  analysisId: string;
+  analysisInfo: AnalysisInfo;
+}) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<AnalysisInfoValues>({
     resolver: zodResolver(analysisFormSchema),
     defaultValues: {
-      height: "",
-      weight: "",
-      gender: undefined,
+      height: analysisInfo.height || "",
+      weight: analysisInfo.weight || "",
+      gender: analysisInfo.gender || undefined,
     },
   });
 
   async function onSubmit(data: AnalysisInfoValues) {
-    console.log("client onSubmit", data);
     const finalData = { ...data, analysisId };
     if (isSubmitting) return;
     try {
@@ -158,7 +166,7 @@ function UpdateInfoForm() {
         <Button
           type="submit"
           className="w-full h-14 text-lg"
-          disabled={isSubmitting || !form.formState.isValid}
+          disabled={isSubmitting}
           aria-label={isSubmitting ? "Creating analysis..." : "Create analysis"}
         >
           {isSubmitting ? (

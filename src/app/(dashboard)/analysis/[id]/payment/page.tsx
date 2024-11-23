@@ -1,5 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
+import { checkAnalysisStatus } from "@/data/analyze";
 import ProCard from "@/components/checkout/pro-card";
 import { TypographyH1 } from "@/components/typography/typography-h1";
 import { TypographyP } from "@/components/typography/typography-p";
@@ -19,7 +20,11 @@ export default async function PaymentPage({ params }: PaymentPageProps) {
   if (!analysisId) {
     notFound();
   }
+  const analysisStatus = await checkAnalysisStatus(analysisId, session.user.id);
 
+  if (analysisStatus) {
+    redirect(`/analysis/${analysisId}`);
+  }
   return (
     <div
       className="max-w-4xl mx-auto space-y-8"
@@ -31,7 +36,7 @@ export default async function PaymentPage({ params }: PaymentPageProps) {
           Your Complete Body Analysis Report
         </TypographyH1>
         <TypographyP className="text-muted-foreground max-w-2xl mx-auto">
-          Get an in-depth analysis of your physique with actionable insights
+          Get an in-depth analysis of your physique with personalized insights
           powered by advanced AI technology
         </TypographyP>
       </div>

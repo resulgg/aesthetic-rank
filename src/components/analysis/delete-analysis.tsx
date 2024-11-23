@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import { deleteAnalysis } from "@/actions/analysis";
+import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import {
   AlertDialog,
@@ -15,17 +15,21 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+interface DeleteAnalysisProps {
+  children: React.ReactNode;
+  analysisId: string;
+  className?: string;
+}
 
 const DeleteAnalysis = ({
   children,
   analysisId,
-}: {
-  children: React.ReactNode;
-  analysisId: string;
-}) => {
+  className,
+}: DeleteAnalysisProps) => {
   const [isPending, startTransition] = useTransition();
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-  const router = useRouter();
 
   const handleDeleteAnalysis = async () => {
     try {
@@ -38,7 +42,6 @@ const DeleteAnalysis = ({
         }
 
         toast.success("Analysis deleted successfully");
-        router.push("/analysis/new");
       });
     } catch (error) {
       console.error("Failed to delete analysis:", error);
@@ -51,11 +54,11 @@ const DeleteAnalysis = ({
       <Button
         disabled={isPending}
         onClick={() => setShowConfirmDialog(true)}
-        className="w-full"
+        className={cn("w-full", className)}
         variant="destructiveGhost"
         aria-label="Delete analysis"
       >
-        {isPending ? "Deleting..." : children}
+        {isPending ? <Loader2 className="h-5 w-5 animate-spin" /> : children}
       </Button>
 
       <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>

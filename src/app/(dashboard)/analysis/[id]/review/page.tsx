@@ -23,12 +23,14 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
   if (!analysisId) {
     notFound();
   }
-
   // Get uploaded photos
   const analysis = await getAnalysisReviewById(analysisId, session.user.id);
   const hasPhotos = analysis && analysis.photos.length > 0;
   if (!hasPhotos) {
     redirect(`/analysis/${analysisId}/photos`);
+  }
+  if (analysis.isCompleted) {
+    redirect(`/analysis/${analysisId}`);
   }
 
   return (
@@ -42,7 +44,7 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
           ranking.
         </TypographyP>
       </div>
-      <Card className="p-4 space-y-4">
+      <Card className="p-5 space-y-4">
         <AnalysisReview analysis={analysis} />
         <div className="flex flex-col gap-4">
           {analysis && (
@@ -51,9 +53,7 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
                 <Link href={`/analysis/${analysisId}/payment`}>Confirm</Link>
               </Button>
               <Button variant="outline" className="w-full" asChild>
-                <Link href={`/analysis/${analysisId}/info`}>
-                  Edit Information
-                </Link>
+                <Link href={`/analysis/${analysisId}/info`}>Edit</Link>
               </Button>
             </>
           )}

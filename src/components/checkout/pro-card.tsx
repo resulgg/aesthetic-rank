@@ -107,15 +107,15 @@ const ProCard = () => {
             <div className="h-7 w-[1px] bg-foreground/10"></div>
             <div className="flex flex-col">
               <span className="text-sm text-foreground line-through">
-                $29.99
+                $19.99
               </span>
-              <span className="text-xs text-primary font-medium">67% OFF</span>
+              <span className="text-xs text-primary font-medium">50% OFF</span>
             </div>
           </div>
         </div>
       </CardHeader>
 
-      <CardContent className="space-y-8 relative z-40 px-6 pt-6 pb-5 mt-60">
+      <CardContent className="space-y-8 relative z-40 px-4 md:px-6 pt-6 pb-5 mt-60">
         <div className="grid grid-cols-1 gap-4 w-full">
           {FEATURES.map((feature, index) => (
             <div

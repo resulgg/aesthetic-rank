@@ -2,7 +2,6 @@ import Image from "next/image";
 import { TypographyP } from "@/components/typography/typography-p";
 import { TypographyH3 } from "../typography/typography-h3";
 import { TypographyH4 } from "../typography/typography-h4";
-import { Card } from "../ui/card";
 
 type AnalysisReviewProps = {
   analysis: {
@@ -33,7 +32,7 @@ const AnalysisReview = ({ analysis }: AnalysisReviewProps) => {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 p-2">
       <div className="space-y-4">
         <div className="space-y-2">
           <TypographyH3>Details</TypographyH3>

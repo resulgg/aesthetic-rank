@@ -8,6 +8,7 @@ import {
   ImagePlus,
   Layers,
   Shield,
+  Smartphone,
   XCircle,
 } from "lucide-react";
 import { TypographyH2 } from "@/components/typography/typography-h2";
@@ -51,6 +52,10 @@ const PhotoGuideTips = () => {
             <Grid2X2 className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
             Mirror selfies are fine, background doesn&apos;t matter
           </li>
+          <li className="flex items-center gap-2">
+            <Smartphone className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+            Take photos in vertical/portrait orientation
+          </li>
         </ul>
       </div>
       <div className="space-y-4">
@@ -87,6 +92,13 @@ const PhotoGuideTips = () => {
           <li className="flex items-center gap-2">
             <ImageOff className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
             Heavily edited photos
+          </li>
+          <li className="flex items-center gap-2">
+            <Smartphone
+              className="h-4 w-4 rotate-90 flex-shrink-0"
+              aria-hidden="true"
+            />
+            Horizontal/landscape orientation photos
           </li>
         </ul>
       </div>

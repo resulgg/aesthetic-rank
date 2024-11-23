@@ -48,7 +48,7 @@ export default async function GuidesPage({
         </AlertDescription>
       </Alert>
       <PhotoGuideTips />
-      <TypographyH2>Photo Examples</TypographyH2>
+      <TypographyH2>Example Photos</TypographyH2>
       <PhotoGuidePhotos sex={sex} />
       <Button asChild>
         <Link href={`/analysis/${resolvedParams.id}/photos`} className="w-full">
