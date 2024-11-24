@@ -167,7 +167,6 @@ export const analysisDataSchema = z.object({
     waistToHeight: ratioSchema,
   }),
   bodyFat: z.object({
-    score: z.number(),
     percentage: z.string(),
     evaluation: z.string(),
   }),
@@ -202,7 +201,6 @@ export const analysisDataSchema = z.object({
     evaluation: z.string(),
   }),
   somatotype: z.object({
-    score: z.number(),
     classification: z.nativeEnum(SomatotypeClassification),
     evaluation: z.string(),
   }),

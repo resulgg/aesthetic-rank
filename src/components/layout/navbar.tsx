@@ -4,7 +4,7 @@ import UserButton from "@/components/auth/user-button";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between  bg-background z-50">
+    <nav className="flex items-center justify-between bg-background z-50">
       <Link
         href="/"
         className="text-base md:text-2xl font-extrabold p-2 border-b-4 border-b-green-700 rounded-none flex items-center gap-2"

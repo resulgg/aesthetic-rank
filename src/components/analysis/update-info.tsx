@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { updateInfo } from "@/actions/analysis";
 import { analysisFormSchema } from "@/schemas/analysis";
 import { zodResolver } from "@hookform/resolvers/zod";

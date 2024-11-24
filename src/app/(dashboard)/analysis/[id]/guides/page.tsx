@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { InfoIcon } from "lucide-react";
 import PhotoGuidePhotos from "@/components/analysis/photo-guide-photos";
 import PhotoGuideTips from "@/components/analysis/photo-guide-tips";
@@ -22,9 +21,11 @@ export default async function GuidesPage({
   const resolvedSearchParams = await searchParams;
   const { sex } = resolvedSearchParams;
 
-  if (!sex || !["male", "female"].includes(sex.toLowerCase())) {
-    notFound();
-  }
+  // Default to male if no sex provided or invalid value
+  const selectedSex =
+    sex && ["male", "female"].includes(sex.toLowerCase())
+      ? sex.toLowerCase()
+      : "male";
 
   return (
     <div
@@ -44,12 +45,12 @@ export default async function GuidesPage({
         <InfoIcon className="h-4 w-4" />
         <AlertDescription>
           If certain body parts are not visible in your photos, our AI will
-          evaluate these areas by proportioning them to the visible parts.
+          evaluate these areas by proportioning them to the visible parts
         </AlertDescription>
       </Alert>
       <PhotoGuideTips />
       <TypographyH2>Example Photos</TypographyH2>
-      <PhotoGuidePhotos sex={sex} />
+      <PhotoGuidePhotos sex={selectedSex} />
       <Button asChild>
         <Link href={`/analysis/${resolvedParams.id}/photos`} className="w-full">
           Continue

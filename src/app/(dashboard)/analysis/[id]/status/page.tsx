@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
-import { checkAnalysisStatus, getAnalysisReviewById } from "@/data/analyze";
+import { getAnalysisReviewById } from "@/data/analyze";
 import CheckStatus from "@/components/analysis/check-status";
 import { TypographyH1 } from "@/components/typography/typography-h1";
 import { TypographyP } from "@/components/typography/typography-p";
-import { Card } from "@/components/ui/card";
 
 interface StatusPageProps {
   params: Promise<{ id: string }>;
@@ -41,7 +40,7 @@ export default async function StatusPage({ params }: StatusPageProps) {
         <TypographyP className="text-muted-foreground text-center">
           Our AI is carefully evaluating your photos to generate a comprehensive
           analysis. This usually takes 30-60 seconds. We&apos;ll redirect you
-          automatically when it&apos;s ready.
+          automatically when it&apos;s ready
         </TypographyP>
       </div>
       <CheckStatus analysis={analysis} />

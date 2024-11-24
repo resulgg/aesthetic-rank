@@ -35,7 +35,7 @@ export default async function NewAnalysisPage({
         </TypographyH1>
         <TypographyP className="text-muted-foreground text-center">
           We need your height, weight and sex to calculate important metrics
-          like BMI, body proportions, and frame size.
+          like BMI, body proportions, and frame size
         </TypographyP>
       </div>
       <Card className="p-6 pt-3">

@@ -130,3 +130,21 @@ export const getAnalysisInfo = async (analysisId: string, userId: string) => {
     throw new Error("Failed to fetch analysis info.");
   }
 };
+
+export const getAllAnalysisDataById = async (
+  analysisId: string,
+  userId: string
+) => {
+  try {
+    const allAnalysisData = await db.query.analysis.findFirst({
+      where: and(eq(analysis.id, analysisId), eq(analysis.userId, userId)),
+      with: {
+        photos: true,
+      },
+    });
+    return allAnalysisData;
+  } catch (error) {
+    console.error("Error fetching analysis data:", error);
+    throw new Error("Failed to fetch analysis data.");
+  }
+};

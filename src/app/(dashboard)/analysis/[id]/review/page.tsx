@@ -41,7 +41,7 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
         </TypographyH1>
         <TypographyP className="text-muted-foreground text-center">
           Confirm your details and photos to take your place in the aesthetic
-          ranking.
+          ranking
         </TypographyP>
       </div>
       <Card className="p-5 space-y-4">

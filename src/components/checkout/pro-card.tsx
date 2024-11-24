@@ -68,7 +68,7 @@ const FEATURES = [
     icon: "🔒",
     title: "Limited Time Offer",
     description:
-      "Get lifetime access to your personalized report at our special 67% discount price - Only $9.99!",
+      "Get lifetime access to your personalized report at our special 50% discount price - Only $9.99!",
   },
 ];
 

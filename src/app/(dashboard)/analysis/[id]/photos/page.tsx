@@ -46,14 +46,14 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
         </TypographyH1>
         <TypographyP className="text-muted-foreground text-center">
           Upload up to {MAX_PHOTOS} photos for your analysis. We recommend
-          including front, side and back views for the most accurate assessment.
+          including front, side and back views for the most accurate assessment
         </TypographyP>
       </div>
       <Alert>
         <InfoIcon className="h-4 w-4" />
         <AlertDescription>
           While multiple angles provide better results, a single clear photo is
-          also sufficient for analysis.
+          also sufficient for analysis
         </AlertDescription>
       </Alert>
       <Card className="p-6 pt-6 space-y-4">
