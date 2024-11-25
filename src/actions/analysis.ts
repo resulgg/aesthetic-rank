@@ -157,3 +157,55 @@ export const createAnalysis = async (userId: string) => {
   }
   redirect(`/analysis/${newAnalysis[0].id}/info`);
 };
+
+const AnalysisSettingsSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .max(30, "Name must be less than 30 characters"),
+  instagram: z
+    .string()
+    .max(30, "Instagram handle must be less than 30 characters")
+    .optional(),
+  isPublic: z.boolean().default(false),
+});
+
+export const updateAnalysisSettings = async (
+  analysisId: string,
+  data: z.infer<typeof AnalysisSettingsSchema>
+) => {
+  try {
+    const session = await auth();
+
+    if (!session?.user?.id) {
+      return { error: "Unauthorized" };
+    }
+
+    // Validate input using Zod
+    const validationResult = AnalysisSettingsSchema.safeParse(data);
+
+    if (!validationResult.success) {
+      const errorMessage =
+        validationResult.error.errors[0]?.message || "Invalid input";
+      return { error: errorMessage };
+    }
+
+    // Update analysis with validated data
+    await db
+      .update(analysis)
+      .set({
+        name: validationResult.data.name,
+        instagram: validationResult.data.instagram,
+        isPublic: validationResult.data.isPublic,
+      })
+      .where(
+        and(eq(analysis.id, analysisId), eq(analysis.userId, session.user.id))
+      );
+
+    revalidatePath(`/analysis/${analysisId}`);
+    return { message: "Analysis settings updated successfully" };
+  } catch (error) {
+    console.error("Failed to update analysis settings:", error);
+    return { error: "Failed to update analysis settings." };
+  }
+};

@@ -35,7 +35,7 @@ export default async function StatusPage({ params }: StatusPageProps) {
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="space-y-4">
         <TypographyH1 className="text-center">
-          Analyzing Your Physique 🔍
+          Analyzing Your Physique
         </TypographyH1>
         <TypographyP className="text-muted-foreground text-center">
           Our AI is carefully evaluating your photos to generate a comprehensive

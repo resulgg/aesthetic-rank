@@ -3,7 +3,11 @@
  * These routes do not require authentication
  * @type {string[]}
  */
-export const publicRoutes = ["/", "/api/webhooks/ls"];
+export const publicRoutes = [
+  "/",
+  "/api/webhooks/ls",
+  "/api/ai-analysis/generate",
+];
 
 /**
  * An array of routes that are used for authentication

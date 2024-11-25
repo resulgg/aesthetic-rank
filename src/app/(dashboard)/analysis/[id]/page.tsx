@@ -1,11 +1,14 @@
 import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getAllAnalysisDataById } from "@/data/analyze";
+import { AestheticRank } from "@/schemas/openai-vision";
 import { AlertTriangle, CheckCircle } from "lucide-react";
 import AestheticRankCard from "@/components/analysis/aesthetic-rank-card";
+import { AnalysisSettings } from "@/components/analysis/analysis-settings";
 import { TypographyH2 } from "@/components/typography/typography-h2";
 import { TypographyP } from "@/components/typography/typography-p";
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 interface AnalysisPageProps {
   params: Promise<{ id: string }>;
@@ -55,24 +58,80 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
     isNatural,
   } = analysis.analysisData;
 
+  const getBgGradient = (rank: AestheticRank) => {
+    switch (rank) {
+      case AestheticRank.Supreme:
+        return "bg-gradient-to-r from-[#ffd700] via-[#ffb700] to-[#ffd700] dark:from-[#ffd700] dark:via-[#ffb700] dark:to-[#ffd700]";
+      case AestheticRank.Legendary:
+        return "bg-gradient-to-r from-[#e9d5ff] via-[#c084fc] to-[#e9d5ff] dark:from-[#E6E6FA] dark:via-[#D8BFD8] dark:to-[#E6E6FA]";
+      case AestheticRank.Elite:
+        return "bg-gradient-to-r from-[#bfdbfe] via-[#60a5fa] to-[#bfdbfe] dark:from-[#E3F2FD] dark:via-[#BBDEFB] dark:to-[#E3F2FD]";
+      case AestheticRank.Intermediate:
+        return "bg-gradient-to-r from-[#fef08a] via-[#facc15] to-[#fef08a] dark:from-[#F0E68C] dark:via-[#EEE8AA] dark:to-[#F0E68C]";
+      case AestheticRank.Developing:
+        return "bg-gradient-to-r from-[#e2e8f0] via-[#94a3b8] to-[#e2e8f0] dark:from-[#B8B8B8] dark:via-[#D3D3D3] dark:to-[#B8B8B8]";
+      case AestheticRank.Beginner:
+        return "bg-gradient-to-r from-[#fed7aa] via-[#fb923c] to-[#fed7aa] dark:from-[#D2B48C] dark:via-[#DEB887] dark:to-[#D2B48C]";
+      case AestheticRank.Starting:
+        return "bg-gradient-to-r from-[#f4f4f5] via-[#d4d4d8] to-[#f4f4f5] dark:from-[#C0C0C0] dark:via-[#DCDCDC] dark:to-[#C0C0C0]";
+      default:
+        return "bg-gradient-to-r from-[#f4f4f5] via-[#d4d4d8] to-[#f4f4f5] dark:from-[#C0C0C0] dark:via-[#DCDCDC] dark:to-[#C0C0C0]";
+    }
+  };
+
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
-      {/* Global Ranking Card */}
-      <div className="flex items-center justify-center gap-4">
-        <div className="text-center">
+    <div className="max-w-6xl relative mx-auto space-y-8">
+      <div className="flex flex-col items-center justify-center gap-3">
+        <TypographyH2
+          className={cn(
+            "inline-flex animate-text-gradient bg-[200%_auto] font-extrabold bg-clip-text text-transparent",
+            getBgGradient(aesthetic.rank)
+          )}
+        >
+          {aesthetic.rank}
+        </TypographyH2>
+        <div className="text-center ">
           <div className="text-2xl font-bold">Rank #9</div>
           <div className="text-sm text-muted-foreground">
             out of 1000 physiques analyzed
           </div>
         </div>
       </div>
-
-      {/* Aesthetic Analysis Section */}
-      <AestheticRankCard
-        analysisPhotos={analysis.photos}
-        aestheticInfo={aesthetic}
-      />
-      <div className="space-y-4 text-center max-w-xl mx-auto">
+      <div className="space-y-2">
+        {/* Aesthetic Analysis Section */}
+        <AestheticRankCard
+          analysisPhotos={analysis.photos}
+          aestheticInfo={aesthetic}
+        />
+        {/* User Info */}
+        {analysis.name && (
+          <div
+            className={cn(
+              "flex items-center justify-center gap-2 rounded-lg",
+              analysis.name.length > 15 ||
+                (analysis.instagram && analysis.instagram.length > 15)
+                ? "flex-col gap-0"
+                : "flex-row"
+            )}
+          >
+            <span className="text-center text-sm cursor-default">
+              {analysis.name}
+            </span>
+            {analysis.instagram && (
+              <a
+                href={`https://instagram.com/${analysis.instagram}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors underline"
+                aria-label={`Visit ${analysis.name}'s Instagram profile`}
+              >
+                <span>@{analysis.instagram}</span>
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+      <div className="text-center max-w-xl mx-auto">
         <TypographyP className="text-muted-foreground">
           {aesthetic.evaluation}
         </TypographyP>
@@ -239,7 +298,7 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
             <div className="flex items-center justify-between">
               <h3 className="font-medium">Body Fat</h3>
               <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-                {bodyFat.percentage}
+                {bodyFat.percentage.replace(/%/g, "")}%
               </span>
             </div>
             <div className="space-y-2">
@@ -428,7 +487,34 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
           ))}
         </div>
       </div>
-
+      <div className="flex flex-col items-center gap-4">
+        {analysis.isPublic ? (
+          <TypographyP className="text-sm text-muted-foreground text-center">
+            Your analysis is public. Your photos and analysis data are visible
+            to everyone, and you appear in the public rankings. Click or tap the
+            gear icon if you want to make it private.
+          </TypographyP>
+        ) : (
+          <TypographyP className="text-sm text-muted-foreground text-center">
+            Click or tap the gear icon to make your analysis public. When
+            public, your photos and analysis data will be visible to everyone,
+            and you&apos;ll appear in the public rankings.
+          </TypographyP>
+        )}
+        <div className="flex items-center gap-2">
+          <span className="text-sm text-muted-foreground bg-muted/50 px-4 py-2 rounded-lg">
+            {analysis.isPublic ? "public" : "private"} analysis
+          </span>
+          <AnalysisSettings
+            analysisId={analysisId}
+            defaultValues={{
+              name: analysis.name || "",
+              instagram: analysis.instagram || "",
+              isPublic: analysis.isPublic || false,
+            }}
+          />
+        </div>
+      </div>
       {isNsfw.isNsfw && (
         <Card className="p-4 border-destructive">
           <TypographyP className="text-destructive text-center">

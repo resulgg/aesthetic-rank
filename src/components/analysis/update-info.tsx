@@ -96,7 +96,6 @@ function UpdateInfoForm({
               <FormControl>
                 <Input
                   type="text"
-                  inputMode="numeric"
                   placeholder="Enter your height"
                   disabled={isSubmitting}
                   aria-required="true"
@@ -121,7 +120,6 @@ function UpdateInfoForm({
               <FormControl>
                 <Input
                   type="text"
-                  inputMode="numeric"
                   placeholder="Enter your weight"
                   disabled={isSubmitting}
                   aria-required="true"
@@ -129,7 +127,7 @@ function UpdateInfoForm({
                 />
               </FormControl>
               <FormDescription>
-                Enter your weight in kg or pounds (e.g. 70kg or 154lbs)
+                Enter your weight in kg or pounds (e.g. 70kg or 154lb)
               </FormDescription>
               <FormMessage />
             </FormItem>

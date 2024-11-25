@@ -78,7 +78,7 @@ const AnalysisReview = ({ analysis }: AnalysisReviewProps) => {
                 className="relative aspect-[16/9] h-[250px] md:h-[420px] w-full rounded-lg overflow-hidden border"
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}
+                  src={`https://${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}
                   alt="Analysis photo"
                   fill
                   className="object-cover"

@@ -17,9 +17,7 @@ export function CompletedAnalysisCard({
       <Card className="w-full relative overflow-hidden group hover:shadow-lg transition-all duration-300">
         <div className="absolute top-4 right-4 z-20">
           <div
-            className={`px-3 py-2 rounded-full backdrop-blur-sm flex items-center gap-2 ${
-              analysis.isPublic ? "bg-primary/80" : "bg-secondary/80"
-            }`}
+            className={`px-3 py-2 rounded-full backdrop-blur-sm flex items-center gap-2 bg-muted/50 border border-primary/10`}
           >
             {analysis.isPublic ? (
               <>
@@ -38,7 +36,7 @@ export function CompletedAnalysisCard({
         <div className="relative h-[400px]">
           {analysis.photos && analysis.photos[0] ? (
             <Image
-              src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${analysis.photos[0].image}`}
+              src={`https://${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${analysis.photos[0].image}`}
               alt="Analysis thumbnail"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"

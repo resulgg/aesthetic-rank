@@ -40,7 +40,7 @@ const AestheticRankCard = ({
   const getConicGradient = (rank: AestheticRank) => {
     switch (rank) {
       case AestheticRank.Supreme:
-        return "bg-[conic-gradient(from_90deg_at_50%_50%,#ecfdf5_0%,#a7f3d0_50%,#ecfdf5_100%)]"; // Using #ecfdf5 for supreme with less contrast
+        return "bg-[conic-gradient(from_90deg_at_50%_50%,#ffd700_0%,#ff8000_50%,#ffd700_100%)]"; // Gold gradient with higher contrast for supreme rank
       case AestheticRank.Legendary:
         return "bg-[conic-gradient(from_90deg_at_50%_50%,#E6E6FA_0%,#D8BFD8_50%,#E6E6FA_100%)]"; // Lavender for legendary
       case AestheticRank.Elite:
@@ -59,17 +59,25 @@ const AestheticRankCard = ({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-xl p-[8px] backdrop-blur-3xl max-w-md mx-auto">
+    <div className="relative overflow-hidden rounded-xl p-[5px] backdrop-blur-3xl max-w-md mx-auto">
       <span
         className={cn(
           "absolute inset-[-1000%] animate-[spin_10s_linear_infinite]",
           getConicGradient(aestheticInfo.rank)
         )}
       />
-      <Card className="w-full relative overflow-hidden border-none rounded-xl">
-        <div className="absolute top-4 right-4 z-20 bg-muted/90 backdrop-blur-sm rounded-lg px-4 py-2">
-          <span className="text-lg md:text-xl">
-            {aestheticInfo.score.toFixed(1)} / 10
+      <Card className="w-full relative overflow-hidden border-none rounded-xl h-[470px] md:h-[600px]">
+        <div className="absolute top-4 right-4 z-20">
+          <span className="relative inline-block overflow-hidden rounded-full p-[3px]">
+            <span
+              className={cn(
+                "absolute inset-[-1000%] animate-[spin_2s_linear_infinite]",
+                getConicGradient(aestheticInfo.rank)
+              )}
+            />
+            <div className="inline-flex cursor-default h-full w-full items-center justify-center rounded-full px-3 py-1 text-md md:text-lg font-medium backdrop-blur-3xl text-foreground bg-muted/30">
+              {aestheticInfo.score.toFixed(1)} / 10
+            </div>
           </span>
         </div>
 
@@ -83,7 +91,7 @@ const AestheticRankCard = ({
                 }`}
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}
+                  src={`https://${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}
                   alt="Analysis photo"
                   fill
                   className="object-cover"
@@ -92,16 +100,6 @@ const AestheticRankCard = ({
                 />
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="relative z-10  space-y-8 mt-[400px] md:mt-[500px]">
-          <div
-            className={cn(
-              "flex flex-col items-center space-y-6 backdrop-blur-sm bg-muted/90 rounded-xl p-4 "
-            )}
-          >
-            <div className="text-2xl">{aestheticInfo.rank}</div>
           </div>
         </div>
       </Card>

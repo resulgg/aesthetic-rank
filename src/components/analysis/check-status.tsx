@@ -131,7 +131,7 @@ const CheckStatus = ({ analysis }: CheckStatusProps) => {
   }, [checkStatus, analysis.photos.length]);
 
   return (
-    <Card className="w-full max-w-2xl mx-auto relative overflow-hidden">
+    <Card className="w-full max-w-xl mx-auto relative overflow-hidden">
       <div className="absolute top-4 right-4 z-20">
         <div className="backdrop-blur-sm bg-background/30 rounded-full p-2 border-2 border-primary/10">
           <Loader2
@@ -141,7 +141,7 @@ const CheckStatus = ({ analysis }: CheckStatusProps) => {
         </div>
       </div>
       <div className="absolute inset-0 z-0">
-        <div className="relative w-full h-[500px]">
+        <div className="relative w-full h-[500px] md:h-[600px]">
           {analysis.photos.map((photo, index) => (
             <div
               key={photo.id}
@@ -150,7 +150,7 @@ const CheckStatus = ({ analysis }: CheckStatusProps) => {
               }`}
             >
               <Image
-                src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}
+                src={`https://${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}
                 alt="Analysis in progress"
                 fill
                 className="object-cover"

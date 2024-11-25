@@ -89,7 +89,7 @@ export const POST = verifySignatureAppRouter(async (request: NextRequest) => {
     const photoUrls = photos.map((photo) => ({
       type: "image_url" as const,
       image_url: {
-        url: `${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`,
+        url: `https://${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`,
       },
     }));
 

@@ -225,8 +225,8 @@ export const analysisDataSchema = z.object({
   weaknesses: z.object({
     points: z.array(z.string()),
   }),
-  height: z.number(),
-  weight: z.number(),
+  height: z.string(),
+  weight: z.string(),
   isNsfw: z.object({
     isNsfw: z.boolean(),
     reason: z.string(),

@@ -47,38 +47,21 @@ export const handleOrderCreated = async (
 ) => {
   try {
     // Create payment record
-    await db
-      .insert(payments)
-      .values({
-        status: payload.data.attributes.status,
-        userId,
-        analysisId,
-        customerId: `${payload.data.attributes.customer_id}`,
-        orderNumber: `${payload.data.attributes.order_number}`,
-        orderId: `${payload.data.attributes.first_order_item.order_id}`,
-        total: payload.data.attributes.total,
-        totalFormatted: payload.data.attributes.total_formatted,
-        receiptUrl: payload.data.attributes.urls.receipt,
-        customerEmail: payload.data.attributes.user_email,
-        customerName: payload.data.attributes.user_name,
-        createdAt: payload.data.attributes.created_at,
-        updatedAt: payload.data.attributes.updated_at,
-      })
-      .onConflictDoUpdate({
-        target: [payments.userId, payments.analysisId],
-        set: {
-          status: payload.data.attributes.status,
-          customerId: `${payload.data.attributes.customer_id}`,
-          orderNumber: `${payload.data.attributes.order_number}`,
-          orderId: `${payload.data.attributes.first_order_item.order_id}`,
-          total: payload.data.attributes.total,
-          totalFormatted: payload.data.attributes.total_formatted,
-          receiptUrl: payload.data.attributes.urls.receipt,
-          customerEmail: payload.data.attributes.user_email,
-          customerName: payload.data.attributes.user_name,
-          updatedAt: payload.data.attributes.updated_at,
-        },
-      });
+    await db.insert(payments).values({
+      status: payload.data.attributes.status,
+      userId,
+      analysisId,
+      customerId: `${payload.data.attributes.customer_id}`,
+      orderNumber: `${payload.data.attributes.order_number}`,
+      orderId: `${payload.data.attributes.first_order_item.order_id}`,
+      total: payload.data.attributes.total,
+      totalFormatted: payload.data.attributes.total_formatted,
+      receiptUrl: payload.data.attributes.urls.receipt,
+      customerEmail: payload.data.attributes.user_email,
+      customerName: payload.data.attributes.user_name,
+      createdAt: payload.data.attributes.created_at,
+      updatedAt: payload.data.attributes.updated_at,
+    });
 
     // Update analysis payment status
     await db
@@ -87,7 +70,7 @@ export const handleOrderCreated = async (
       .where(eq(analysis.id, analysisId));
 
     await queue.enqueueJSON({
-      url: `${process.env.NEXT_PUBLIC_APP_URL}/api/ai-analysis/generate`,
+      url: `${process.env.NODE_ENV === "development" ? process.env.DEV_APP_URL : process.env.NEXT_PUBLIC_APP_URL}/api/ai-analysis/generate`,
       body: { analysisId, userId },
     });
   } catch (error) {

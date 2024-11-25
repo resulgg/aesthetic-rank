@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
-    remotePatterns: [{ hostname: "cdn.resulbasyigit.com" }],
+    remotePatterns: [{ hostname: process.env.NEXT_PUBLIC_R2_PUBLIC_URL! }],
   },
   logging: {
     fetches: {

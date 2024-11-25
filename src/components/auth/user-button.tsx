@@ -24,7 +24,7 @@ const UserButton = () => {
         <Avatar className="h-12 w-12 cursor-pointer rounded-full">
           <AvatarImage src={session?.user?.image || ""} />
           <AvatarFallback>
-            {`${session?.user?.name?.split(" ")[0]?.[0] || "🐼"}${
+            {`${session?.user?.name?.split(" ")[0]?.[0] || "💪"}${
               session?.user?.name?.split(" ")[1]?.[0] || ""
             }`}
           </AvatarFallback>

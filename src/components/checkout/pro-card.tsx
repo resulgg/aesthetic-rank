@@ -72,7 +72,7 @@ const FEATURES = [
   },
 ];
 
-const ProCard = () => {
+const ProCard = ({ analysisId }: { analysisId: string }) => {
   return (
     <Card className="w-full max-w-xl relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -138,7 +138,7 @@ const ProCard = () => {
 
       <CardFooter className="flex flex-col gap-4 relative z-10 px-6">
         <CheckoutButton
-          analysisId="placeholder"
+          analysisId={analysisId}
           className="w-full bg-primary hover:opacity-90 transition-opacity"
         >
           Get Your Analysis Now

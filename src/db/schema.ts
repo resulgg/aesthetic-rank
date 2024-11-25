@@ -90,8 +90,7 @@ export const analysis = pgTable("analysis", {
   height: varchar("height", { length: 5 }),
   weight: varchar("weight", { length: 5 }),
   gender: gender("gender"),
-  name: varchar("name", { length: 60 }),
-  showImages: boolean("show_images").default(true),
+  name: varchar("name", { length: 30 }),
   instagram: varchar("instagram", { length: 30 }),
   isCompleted: boolean("is_completed").default(false),
   isPaid: boolean("is_paid").default(false),
@@ -143,12 +142,10 @@ export const photosRelations = relations(photos, ({ one }) => ({
 
 export const payments = pgTable("payment", {
   id: uuid("id").primaryKey().defaultRandom(),
-  userId: uuid("user_id")
-    .notNull()
-    .references(() => users.id, { onDelete: "no action" }),
-  analysisId: uuid("analysis_id")
-    .notNull()
-    .references(() => analysis.id, { onDelete: "no action" }),
+  userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
+  analysisId: uuid("analysis_id").references(() => analysis.id, {
+    onDelete: "set null",
+  }),
   status: text("status").notNull(),
   customerId: text("customer_id").notNull(),
   refundedAt: timestamp("refunded_at", { mode: "string" }),

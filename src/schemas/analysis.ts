@@ -26,19 +26,29 @@ export const analysisFormSchema = z.object({
   weight: z
     .string()
     .min(1, { message: "Weight is required" })
-    .regex(/^\d+(\.\d+)?$/, { message: "Weight must be a valid number" })
+    .regex(/^(\d+(\.\d+)?)(kg|lb?)$/i, {
+      message:
+        "Weight must be a valid number followed by kg or lb (e.g. 70kg or 154lb)",
+    })
     .refine(
       (val) => {
-        const num = parseFloat(val);
-        // Check if weight is in pounds (roughly 2.2x kg)
-        if (num > 400) {
-          const kg = num / 2.205;
-          return kg >= 35 && kg <= 400;
-        }
-        // Assume kg
-        return num >= 35 && num <= 400;
+        const match = val.toLowerCase().match(/^(\d+(?:\.\d+)?)(kg|lb?)$/);
+        if (!match) return false;
+
+        const num = parseFloat(match[1]);
+        const unit = match[2];
+
+        if (!unit) return false;
+
+        // Convert to kg for validation
+        const kg = unit.startsWith("lb") ? num / 2.205 : num;
+
+        return kg >= 35 && kg <= 400;
       },
-      { message: "Weight must be between 35kg - 400kg (77lb - 880lb)" }
+      {
+        message:
+          "Weight must be between 35-400kg or 77-880lb and must include unit (kg or lb)",
+      }
     ),
   gender: z.enum(["male", "female"], { message: "Please select a gender" }),
 });

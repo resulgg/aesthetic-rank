@@ -38,7 +38,6 @@ export const POST = async (request: NextRequest) => {
   if (!validateWebhookSignature(secret, signature, rawBody)) {
     return NextResponse.json("Invalid request", { status: 400 });
   }
-
   const payload = JSON.parse(rawBody) as LemonSqueezyPayload;
   const event = payload.meta.event_name;
   const userId = payload.meta.custom_data.user_id;

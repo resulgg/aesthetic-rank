@@ -41,7 +41,7 @@ export default async function PaymentPage({ params }: PaymentPageProps) {
         </TypographyP>
       </div>
       <div className="flex justify-center items-center">
-        <ProCard />
+        <ProCard analysisId={analysisId} />
       </div>
     </div>
   );

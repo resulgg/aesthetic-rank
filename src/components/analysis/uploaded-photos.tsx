@@ -79,7 +79,7 @@ export function UploadedPhotos({ photos }: UploadedPhotosProps) {
               role="listitem"
             >
               <Image
-                src={`${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}
+                src={`https://${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${photo.image}`}
                 alt={`Uploaded photo from ${photo.createdAt.toLocaleDateString()}`}
                 fill
                 className={"object-cover rounded-lg"}
