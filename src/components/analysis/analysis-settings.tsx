@@ -151,7 +151,9 @@ export function AnalysisSettings({
                 <div className="space-y-0.5">
                   <FormLabel className="text-base">Public Analysis</FormLabel>
                   <div className="text-sm text-muted-foreground">
-                    Make your analysis visible to others
+                    {field.value
+                      ? "Toggle to make it private"
+                      : "Toggle to make it public"}
                   </div>
                 </div>
                 <FormControl>

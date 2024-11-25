@@ -148,3 +148,19 @@ export const getAllAnalysisDataById = async (
     throw new Error("Failed to fetch analysis data.");
   }
 };
+
+export const getPublicAnalysisById = async (analysisId: string) => {
+  try {
+    const publicAnalysis = await db.query.analysis.findFirst({
+      where: eq(analysis.id, analysisId),
+      with: {
+        photos: true,
+      },
+    });
+
+    return publicAnalysis;
+  } catch (error) {
+    console.error("Error fetching public analysis:", error);
+    throw new Error("Analysis not found or has been deleted.");
+  }
+};

@@ -13,6 +13,6 @@ export const NAV_LINKS = [
   },
   {
     label: "Billing",
-    href: "/billing",
+    href: "/profile",
   },
 ];

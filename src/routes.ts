@@ -22,7 +22,7 @@ export const authRoutes = ["/auth/login", "/auth/signup", "/auth/error"];
  * @type {string}
  */
 export const apiAuthPrefix = "/api/auth";
-
+export const publicAnalysisPrefix = "/analysis/public";
 /**
  * The default redirect path after logging in
  * @type {string}

@@ -25,7 +25,9 @@ export default function PhotoUpload({
 }: PhotoUploadProps) {
   const [isUploading, setIsUploading] = useState(false);
   const [isRouting, setIsRouting] = useState(false);
+  const [fileSizeError, setFileSizeError] = useState<string | null>(null);
   const router = useRouter();
+
   const uploadFile = async (file: File) => {
     try {
       if (!file) {
@@ -94,6 +96,7 @@ export default function PhotoUpload({
     }
 
     setIsUploading(true);
+    setFileSizeError(null);
     try {
       for (const file of acceptedFiles) {
         await uploadFile(file);
@@ -121,6 +124,18 @@ export default function PhotoUpload({
         error instanceof Error ? error.message : "File upload error";
       toast.error(errorMessage);
       console.error("Dropzone error:", error);
+    },
+    onDropRejected: (fileRejections) => {
+      const oversizedFiles = fileRejections.filter(
+        (file) => file.file.size > MAX_FILE_SIZE
+      );
+      if (oversizedFiles.length > 0) {
+        setFileSizeError(
+          `Photo${oversizedFiles.length > 1 ? "s" : ""} too large. Maximum size per photo is ${
+            MAX_FILE_SIZE / (1024 * 1024)
+          }MB`
+        );
+      }
     },
   });
 
@@ -175,7 +190,8 @@ export default function PhotoUpload({
             !isUploading &&
               !isRouting &&
               !isDragActive &&
-              "hover:border-primary cursor-pointer"
+              "hover:border-primary cursor-pointer",
+            fileSizeError && "border-destructive"
           )}
           role="button"
           tabIndex={0}
@@ -213,6 +229,11 @@ export default function PhotoUpload({
                     remainingPhotos === 1 ? "" : "s"
                   } remaining`}
             </p>
+            {fileSizeError && (
+              <p className="text-sm text-destructive mt-2" role="alert">
+                {fileSizeError}
+              </p>
+            )}
           </div>
         </div>
       ) : (

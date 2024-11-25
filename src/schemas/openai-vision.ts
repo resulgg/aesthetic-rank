@@ -76,7 +76,7 @@ export enum VascularityType {
   LowVascularity = "Low Vascularity",
 }
 
-export enum SkinHealthType {
+export enum SkinConditionType {
   Excellent = "Excellent",
   Good = "Good",
   Poor = "Poor",
@@ -190,9 +190,9 @@ export const analysisDataSchema = z.object({
     type: z.nativeEnum(VascularityType),
     evaluation: z.string(),
   }),
-  skinHealth: z.object({
+  skinCondition: z.object({
     score: z.number(),
-    type: z.nativeEnum(SkinHealthType),
+    type: z.nativeEnum(SkinConditionType),
     evaluation: z.string(),
   }),
   bmi: z.object({
@@ -235,7 +235,7 @@ export const analysisDataSchema = z.object({
     isNatural: z.boolean(),
     reason: z.string(),
   }),
-  sportSuitability: z.object({
+  sportRecommendation: z.object({
     recommendedSport: z.array(z.string()),
     evaluation: z.string(),
   }),

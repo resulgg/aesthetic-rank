@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getAnalysisReviewById } from "@/data/analyze";
 import AnalysisReview from "@/components/analysis/analysis-review";
+import DeleteAnalysisButton from "@/components/analysis/delete-analysis";
 import { TypographyH1 } from "@/components/typography/typography-h1";
 import { TypographyP } from "@/components/typography/typography-p";
 import { Button } from "@/components/ui/button";
@@ -55,6 +56,9 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
               <Button variant="outline" className="w-full" asChild>
                 <Link href={`/analysis/${analysisId}/info`}>Edit</Link>
               </Button>
+              <DeleteAnalysisButton analysisId={analysisId}>
+                Delete
+              </DeleteAnalysisButton>
             </>
           )}
         </div>

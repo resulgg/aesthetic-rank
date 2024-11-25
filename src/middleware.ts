@@ -6,6 +6,7 @@ import {
   apiAuthPrefix,
   authRoutes,
   DEFAULT_LOGIN_REDIRECT,
+  publicAnalysisPrefix,
   publicRoutes,
 } from "./routes";
 
@@ -19,7 +20,9 @@ type RouteType = {
 
 const getRouteType = (pathname: string): RouteType => ({
   isApi: pathname.startsWith(apiAuthPrefix),
-  isPublic: publicRoutes.includes(pathname),
+  isPublic:
+    publicRoutes.includes(pathname) ||
+    pathname.startsWith(publicAnalysisPrefix),
   isAuth: authRoutes.includes(pathname),
 });
 

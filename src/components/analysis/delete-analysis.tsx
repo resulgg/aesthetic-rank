@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { deleteAnalysis } from "@/actions/analysis";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -23,14 +24,14 @@ interface DeleteAnalysisProps {
   className?: string;
 }
 
-const DeleteAnalysis = ({
+const DeleteAnalysisButton = ({
   children,
   analysisId,
   className,
 }: DeleteAnalysisProps) => {
   const [isPending, startTransition] = useTransition();
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-
+  const router = useRouter();
   const handleDeleteAnalysis = async () => {
     try {
       startTransition(async () => {
@@ -42,6 +43,7 @@ const DeleteAnalysis = ({
         }
 
         toast.success("Analysis deleted successfully");
+        router.push("/analysis");
       });
     } catch (error) {
       console.error("Failed to delete analysis:", error);
@@ -54,8 +56,8 @@ const DeleteAnalysis = ({
       <Button
         disabled={isPending}
         onClick={() => setShowConfirmDialog(true)}
-        className={cn("w-full", className)}
-        variant="destructiveGhost"
+        className={cn(className)}
+        variant="destructive"
         aria-label="Delete analysis"
       >
         {isPending ? <Loader2 className="h-5 w-5 animate-spin" /> : children}
@@ -85,4 +87,4 @@ const DeleteAnalysis = ({
   );
 };
 
-export default DeleteAnalysis;
+export default DeleteAnalysisButton;
