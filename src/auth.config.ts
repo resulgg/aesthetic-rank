@@ -6,6 +6,7 @@ export default {
   pages: {
     signIn: "/auth/login",
     signOut: "/",
+    verifyRequest: "/auth/verify-request",
   },
   callbacks: {
     jwt({ token, user }) {

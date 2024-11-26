@@ -36,9 +36,9 @@ const SignupWithEmail = () => {
   const onSubmit = async (data: SignupFormValues) => {
     try {
       setIsLoading(true);
-      await signIn("email", {
+      await signIn("resend", {
         email: data.email,
-        redirectTo: "/dashboard",
+        redirectTo: "/analysis",
       });
     } catch (error) {
       console.error("Failed to sign up:", error);

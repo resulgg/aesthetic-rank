@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getUserProfileAndPayments } from "@/data/user";
 import { ExternalLink } from "lucide-react";
+import DeleteUserButton from "@/components/auth/delete-user-button";
 import ThemeToggle from "@/components/theme-toggle";
 import { TypographyH2 } from "@/components/typography/typography-h2";
 import { TypographyP } from "@/components/typography/typography-p";
@@ -39,7 +40,7 @@ export default async function ProfilePage() {
   return (
     <div className="container mx-auto max-w-4xl space-y-8">
       <TypographyH2>Profile</TypographyH2>
-      <Card>
+      <Card className="bg-muted/50">
         <CardHeader>
           <div className="flex items-center gap-4">
             <Avatar className="h-20 w-20">
@@ -64,7 +65,7 @@ export default async function ProfilePage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="bg-muted/50">
         <CardHeader>
           <h3 className="text-xl font-semibold">Payment History</h3>
         </CardHeader>
@@ -137,6 +138,22 @@ export default async function ProfilePage() {
               </TypographyP>
             </div>
           )}
+        </CardContent>
+      </Card>
+
+      <Card className="bg-muted/50">
+        <CardHeader>
+          <h3 className="text-xl font-semibold">Danger Zone</h3>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-2">
+            <TypographyP className="text-muted-foreground">
+              Before deleting your account, you must first delete all your
+              analyses and drafts. Once deleted, your account cannot be
+              recovered. Please be certain.
+            </TypographyP>
+            <DeleteUserButton userId={profile.id} />
+          </div>
         </CardContent>
       </Card>
     </div>

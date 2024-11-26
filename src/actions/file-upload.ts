@@ -7,9 +7,10 @@ import {
   MAX_FILE_SIZE,
   MIN_FILE_SIZE,
 } from "@/constants/photo";
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { z } from "zod";
+import s3Client from "@/lib/s3-client";
 
 // Enhanced file validation schema
 const fileSchema = z.object({
@@ -33,16 +34,6 @@ const fileSchema = z.object({
 });
 
 type FileType = z.infer<typeof fileSchema>;
-
-// Initialize S3 client with R2 configuration
-const s3Client = new S3Client({
-  region: process.env.R2_REGION!,
-  endpoint: process.env.R2_ENDPOINT!,
-  credentials: {
-    accessKeyId: process.env.R2_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
-  },
-});
 
 /**
  * Generates a presigned URL for file upload to R2 storage

@@ -69,14 +69,14 @@ const AestheticRankCard = ({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-xl p-[5px] backdrop-blur-3xl max-w-md mx-auto">
+    <div className="relative overflow-hidden rounded-[32px] p-[8px] backdrop-blur-3xl max-w-md mx-auto">
       <span
         className={cn(
           "absolute inset-[-1000%] animate-[spin_10s_linear_infinite]",
           getConicGradient(aestheticInfo.rank)
         )}
       />
-      <Card className="w-full relative overflow-hidden border-none rounded-xl h-[470px] md:h-[600px]">
+      <Card className="w-full relative overflow-hidden border-none shadow-none rounded-lg h-[470px] md:h-[600px]">
         {isNsfw.isNsfw && (
           <Button
             variant="ghost"
@@ -112,7 +112,7 @@ const AestheticRankCard = ({
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             {isNsfw.isNsfw && !showNsfwContent && (
-              <div className="absolute inset-0 z-10 bg-background/80 backdrop-blur-xl flex items-center justify-center">
+              <div className="absolute inset-0 z-10 bg-background/80 flex items-center justify-center">
                 <div className="text-center">
                   <p className="text-muted-foreground px-6">
                     This content has been marked as NSFW

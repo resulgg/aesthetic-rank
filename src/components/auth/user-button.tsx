@@ -37,9 +37,9 @@ const UserButton = () => {
     >
       <div className="flex flex-col gap-4 pt-4">
         <div className="flex flex-col gap-4">
-          {NAV_LINKS.map(({ label, href }) => (
+          {NAV_LINKS.map(({ label, href, id }) => (
             <Button
-              key={href}
+              key={id}
               variant="outline"
               asChild
               onClick={() => setDialogOpen(false)}

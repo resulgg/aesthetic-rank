@@ -103,7 +103,6 @@ export function AnalysisSettings({
       trigger={
         <Button
           variant="ghost"
-          aria-label="Settings"
           className="text-foreground cursor-pointer rounded-full p-2 h-8 w-8 bg-muted/50"
           asChild
         >

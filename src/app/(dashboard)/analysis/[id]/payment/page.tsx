@@ -32,8 +32,8 @@ export default async function PaymentPage({ params }: PaymentPageProps) {
       aria-labelledby="payment-title"
     >
       <div className="space-y-4 text-center">
-        <TypographyH1 id="payment-title">
-          Your Complete Body Analysis Report
+        <TypographyH1 id="payment-title" className="px-8 md:px-32">
+          Your Comprehensive Body Analysis Report
         </TypographyH1>
         <TypographyP className="text-muted-foreground max-w-2xl mx-auto">
           Get an in-depth analysis of your physique with personalized insights

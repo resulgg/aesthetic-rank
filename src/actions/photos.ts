@@ -5,9 +5,10 @@ import { auth } from "@/auth";
 import { MAX_PHOTOS } from "@/constants/photo";
 import db from "@/db";
 import { analysis, photos } from "@/db/schema";
-import { DeleteObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { DeleteObjectCommand } from "@aws-sdk/client-s3";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
+import s3Client from "@/lib/s3-client";
 
 const photoSchema = z.object({
   image: z.string().min(1),
@@ -19,16 +20,6 @@ const deletePhotoSchema = z.object({
 });
 
 type CreatePhotoInput = z.infer<typeof photoSchema>;
-
-// Initialize S3 client
-const s3Client = new S3Client({
-  region: process.env.R2_REGION!,
-  endpoint: process.env.R2_ENDPOINT!,
-  credentials: {
-    accessKeyId: process.env.R2_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
-  },
-});
 
 /**
  * Creates a new photo record for an authenticated user

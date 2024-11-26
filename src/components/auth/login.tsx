@@ -13,12 +13,10 @@ import { Separator } from "@/components/ui/separator";
 
 const LoginPage = () => {
   return (
-    <Card className="w-full max-w-lg shadow-lg">
+    <Card className="w-full max-w-lg shadow-lg bg-muted/50">
       <CardHeader className="space-y-2 text-center">
         <CardTitle className="text-3xl font-bold">Welcome back</CardTitle>
-        <CardDescription>
-          Sign in to your Progress Tracker account
-        </CardDescription>
+        <CardDescription>Log in to your Aesthetic Rank account</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <SignupWithEmail />
@@ -28,7 +26,7 @@ const LoginPage = () => {
             <Separator />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">
+            <span className="bg-muted rounded-lg px-2 text-muted-foreground">
               Or continue with
             </span>
           </div>

@@ -33,6 +33,18 @@ export function CompletedAnalysisCard({
           </div>
         </div>
 
+        <div className="absolute top-4 left-4 z-20">
+          <div className="px-3 py-2 rounded-full backdrop-blur-sm flex items-center gap-2 bg-muted/50 border border-primary/10">
+            <span className="text-xs font-medium">
+              {new Date(analysis.createdAt || "").toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </span>
+          </div>
+        </div>
+
         <div className="relative h-[400px]">
           {analysis.photos && analysis.photos[0] ? (
             <Image

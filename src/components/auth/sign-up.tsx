@@ -13,11 +13,12 @@ import { Separator } from "@/components/ui/separator";
 
 const SignUpPage = () => {
   return (
-    <Card className="w-full max-w-lg shadow-lg">
+    <Card className="w-full max-w-lg shadow-lg bg-muted/50">
       <CardHeader className="space-y-2 text-center">
         <CardTitle className="text-3xl font-bold">Create an account</CardTitle>
-        <CardDescription>
-          Get started with Progress Tracker - it&apos;s free and easy
+        <CardDescription className="md:px-12">
+          Sign up to discover your ranking and receive comprehensive AI body
+          analysis
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -28,7 +29,7 @@ const SignUpPage = () => {
             <Separator />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">
+            <span className="bg-muted rounded-lg px-2 text-muted-foreground">
               Or continue with
             </span>
           </div>
@@ -43,7 +44,7 @@ const SignUpPage = () => {
             href="/auth/login"
             className="font-medium text-primary hover:underline"
           >
-            Sign in
+            Log in
           </Link>
         </p>
       </CardFooter>

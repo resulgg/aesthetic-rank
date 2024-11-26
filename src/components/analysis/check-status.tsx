@@ -120,7 +120,7 @@ const CheckStatus = ({ analysis }: CheckStatusProps) => {
       setCurrentPhotoIndex((prev) => (prev + 1) % analysis.photos.length);
     }, 3000);
 
-    const statusInterval = setInterval(checkStatus, 20000);
+    const statusInterval = setInterval(checkStatus, 30000);
     checkStatus();
 
     return () => {

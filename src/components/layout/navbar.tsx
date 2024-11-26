@@ -1,19 +1,24 @@
 import Link from "next/link";
-import { ChartNoAxesColumnIncreasingIcon } from "lucide-react";
+import { auth } from "@/auth";
 import UserButton from "@/components/auth/user-button";
+import { Logo } from "@/components/logo";
+import { Button } from "@/components/ui/button";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await auth();
   return (
-    <nav className="flex items-center justify-between bg-background z-50">
-      <Link
-        href="/"
-        className="text-base md:text-2xl font-extrabold p-2 border-b-4 border-b-green-700 rounded-none flex items-center gap-2"
-      >
-        <ChartNoAxesColumnIncreasingIcon className="h-6 w-6" />
-        AR
+    <nav className="flex items-center justify-between z-50 border border-border bg-muted/50 rounded-lg p-4">
+      <Link href="/analysis">
+        <Logo />
       </Link>
       <div className="flex items-center">
-        <UserButton />
+        {session ? (
+          <UserButton />
+        ) : (
+          <Button variant="default" className="h-12 font-semibold" asChild>
+            <Link href="/analysis">Get Ranked</Link>
+          </Button>
+        )}
       </div>
     </nav>
   );

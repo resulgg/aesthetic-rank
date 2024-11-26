@@ -1,3 +1,4 @@
+import { getAestheticRankByAnalysisId } from "@/data/rank";
 import { AestheticRank } from "@/schemas/openai-vision";
 import { AnalysisDataType, SelectAnalysisAndPhotos } from "@/types/analysis";
 import { AlertTriangle, CheckCircle } from "lucide-react";
@@ -7,7 +8,7 @@ import { TypographyP } from "@/components/typography/typography-p";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-const AnalysisResult = ({
+const AnalysisResult = async ({
   analysis,
 }: {
   analysis: SelectAnalysisAndPhotos;
@@ -37,6 +38,11 @@ const AnalysisResult = ({
     warriorType,
     isNatural,
   } = analysis.analysisData as AnalysisDataType;
+
+  const { rank, totalMembers } = await getAestheticRankByAnalysisId(
+    analysis.id
+  );
+
   const getBgGradient = (rank: AestheticRank) => {
     switch (rank) {
       case AestheticRank.Supreme:
@@ -69,12 +75,18 @@ const AnalysisResult = ({
         >
           {aesthetic.rank}
         </TypographyH2>
-        <div className="text-center ">
-          <div className="text-2xl font-bold">Rank #9</div>
-          <div className="text-sm text-muted-foreground">
-            out of 1000 physiques analyzed
+        {rank && totalMembers ? (
+          <div className="text-center ">
+            <div className="text-2xl font-bold">Rank #{rank}</div>
+            <div className="text-sm text-muted-foreground">
+              out of {totalMembers} physiques analyzed
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="text-center text-sm text-muted-foreground">
+            Ranking system is temporarily disabled due to high system load
+          </div>
+        )}
       </div>
       <div className="space-y-2">
         {/* Aesthetic Analysis Section */}
@@ -175,11 +187,20 @@ const AnalysisResult = ({
             className="space-y-2 text-muted-foreground"
             aria-labelledby="improvements-heading"
           >
-            {weaknesses.points.map((point, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <p>- {point}</p>
+            {weaknesses.points.length === 0 ? (
+              <li className="flex items-center gap-2">
+                <p>
+                  💀 Exceptional physique - no major areas for improvement
+                  identified!
+                </p>
               </li>
-            ))}
+            ) : (
+              weaknesses.points.map((point, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <p>- {point}</p>
+                </li>
+              ))
+            )}
           </ul>
         </div>
       </div>

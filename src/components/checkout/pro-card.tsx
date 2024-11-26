@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Clock, Users } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -20,7 +21,7 @@ const FEATURES = [
     icon: "✨",
     title: "Personalized Insights",
     description:
-      "Genetic potential assessment, sport suitability, and detailed strength/weakness analysis",
+      "Genetic potential assessment, sport recommendations, and strength/weakness evaluation",
   },
   {
     icon: "🎯",
@@ -115,7 +116,7 @@ const ProCard = ({ analysisId }: { analysisId: string }) => {
         </div>
       </CardHeader>
 
-      <CardContent className="space-y-8 relative z-40 px-4 md:px-6 pt-6 pb-5 mt-60">
+      <CardContent className="space-y-4 relative z-40 px-4 md:px-6 pt-6 pb-5 mt-60">
         <div className="grid grid-cols-1 gap-4 w-full">
           {FEATURES.map((feature, index) => (
             <div
@@ -143,9 +144,6 @@ const ProCard = ({ analysisId }: { analysisId: string }) => {
         >
           Get Your Analysis Now
         </CheckoutButton>
-        <div className="flex flex-col items-center gap-1 text-xs text-muted-foreground">
-          <p>Secure Payment by Lemon Squeezy</p>
-        </div>
       </CardFooter>
     </Card>
   );

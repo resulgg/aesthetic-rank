@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getPublicAnalysisById } from "@/data/analyze";
-import { AlertTriangle, EyeOff } from "lucide-react";
+import { AlertTriangle, EyeOff, Trophy } from "lucide-react";
 import AnalysisResult from "@/components/analysis/analysis-result";
 
 interface AnalysisPageProps {
@@ -53,6 +54,14 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
   return (
     <div className="max-w-6xl relative mx-auto space-y-8">
       <AnalysisResult analysis={analysis} />
+      <Link
+        href="/ranking"
+        className="flex justify-center items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+      >
+        Want to see the
+        <span className="text-primary underline">Top 100</span>
+        Aesthetics?
+      </Link>
     </div>
   );
 }

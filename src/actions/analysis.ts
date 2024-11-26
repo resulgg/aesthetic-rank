@@ -6,23 +6,16 @@ import { auth } from "@/auth";
 import db from "@/db";
 import { analysis, photos } from "@/db/schema";
 import { analysisFormSchema } from "@/schemas/analysis";
-import { DeleteObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { DeleteObjectCommand } from "@aws-sdk/client-s3";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
+import redis from "@/lib/redis-client";
+import s3Client from "@/lib/s3-client";
 
 type CreateAnalysisInput = z.infer<typeof analysisFormSchema> & {
   analysisId: string;
 };
 
-// Initialize S3 client with R2 configuration
-const s3Client = new S3Client({
-  region: process.env.R2_REGION!,
-  endpoint: process.env.R2_ENDPOINT!,
-  credentials: {
-    accessKeyId: process.env.R2_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
-  },
-});
 /**
  * Creates a new analysis record for an authenticated user
  * @param input Analysis data including height, weight and gender
@@ -137,6 +130,7 @@ export const deleteAnalysis = async (analysisId: string) => {
       .where(
         and(eq(analysis.id, analysisId), eq(analysis.userId, session.user.id))
       );
+    await redis.zrem("aesthetic_rank", `analysis:${analysisId}`);
     revalidatePath("/analysis");
     return { success: true };
   } catch (error) {

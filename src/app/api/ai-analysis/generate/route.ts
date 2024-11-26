@@ -8,6 +8,7 @@ import { and, eq } from "drizzle-orm";
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
 import { z } from "zod";
+import redis from "@/lib/redis-client";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -120,7 +121,6 @@ export const POST = verifySignatureAppRouter(async (request: NextRequest) => {
     });
 
     const data = response.choices[0].message.parsed;
-
     // Update analysis with results
     if (data) {
       await db
@@ -131,6 +131,12 @@ export const POST = verifySignatureAppRouter(async (request: NextRequest) => {
           analysisData: data,
         })
         .where(and(eq(analysis.id, analysisId), eq(analysis.userId, userId)));
+
+      await redis.zadd("aesthetic_rank", {
+        score: data.aesthetic.score,
+        member: `analysis:${analysisId}`,
+      });
+
       return Response.json({ id: analysisId }, { status: 200 });
     }
 

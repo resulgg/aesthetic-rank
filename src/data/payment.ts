@@ -2,14 +2,8 @@ import "server-only";
 import db from "@/db";
 import { analysis, payments } from "@/db/schema";
 import { LemonSqueezyPayload } from "@/types/ls-payload";
-import { Client } from "@upstash/qstash";
 import { and, eq } from "drizzle-orm";
-
-const client = new Client({ token: process.env.QSTASH_TOKEN! });
-
-const queue = client.queue({
-  queueName: "ai-analysis",
-});
+import { queue } from "@/lib/queue-client";
 
 /**
  * Retrieves payment information for a specific analysis

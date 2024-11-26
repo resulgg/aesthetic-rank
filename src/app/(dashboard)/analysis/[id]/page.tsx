@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getAllAnalysisDataById } from "@/data/analyze";
@@ -102,6 +103,14 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
           </div>
         </div>
       </div>
+      <Link
+        href="/ranking"
+        className="flex justify-center items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+      >
+        Want to see the
+        <span className="text-primary underline">Top 100</span>
+        Aesthetics?
+      </Link>
     </div>
   );
 }
