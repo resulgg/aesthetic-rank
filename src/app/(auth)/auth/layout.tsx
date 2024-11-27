@@ -8,10 +8,16 @@ interface AuthLayoutProps {
 
 const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col items-center px-4 space-y-4 py-8">
+    <div className="min-h-screen flex flex-col items-center px-4 space-y-6 py-8">
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="flex justify-center items-center bg-muted/50 px-10 py-8 rounded-full border-2 border-border">
-          <Image src="/ranking-logo.png" alt="logo" width={90} height={90} />
+          <Image
+            src="/ranking-logo.png"
+            alt="logo"
+            width={90}
+            height={90}
+            quality={100}
+          />
         </div>
         <TypographyH1
           className={

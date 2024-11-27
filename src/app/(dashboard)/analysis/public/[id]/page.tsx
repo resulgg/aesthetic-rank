@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getPublicAnalysisById } from "@/data/analyze";
-import { AlertTriangle, EyeOff, Trophy } from "lucide-react";
+import { AlertTriangle, EyeOff } from "lucide-react";
 import AnalysisResult from "@/components/analysis/analysis-result";
 
 interface AnalysisPageProps {
@@ -30,7 +30,7 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
         </div>
         <h1 className="text-2xl font-bold">Content Removed</h1>
         <p className="text-muted-foreground">
-          This analysis has been removed for violating our community guidelines.
+          This analysis has been removed for violating our terms of service.
         </p>
       </div>
     );

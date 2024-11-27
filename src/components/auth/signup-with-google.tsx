@@ -27,7 +27,7 @@ const SignupWithGoogle = () => {
       ) : (
         <span className="flex items-center gap-2">
           <GoogleIcon />
-          Signup with Google
+          Continue with Google
         </span>
       )}
     </Button>

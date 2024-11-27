@@ -4,7 +4,7 @@ import UserButton from "@/components/auth/user-button";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 
-const Navbar = async () => {
+const MarketingNavbar = async () => {
   const session = await auth();
   return (
     <nav className="flex items-center justify-between z-50 border border-border bg-muted/50 rounded-lg p-4">
@@ -24,4 +24,4 @@ const Navbar = async () => {
   );
 };
 
-export default Navbar;
+export default MarketingNavbar;

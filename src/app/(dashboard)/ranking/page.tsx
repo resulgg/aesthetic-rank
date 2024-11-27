@@ -10,10 +10,16 @@ export const dynamic = "force-dynamic";
 export default async function RankingsPage() {
   const { data, cacheExpiresAt, totalMembers } = await getTop100Aesthetic();
   return (
-    <div className="space-y-8 md:mt-8">
+    <div className="space-y-8 md:space-y-12">
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="flex justify-center items-center bg-muted/50 px-10 py-8 rounded-full border-2 border-border">
-          <Image src="/ranking-logo.png" alt="logo" width={90} height={90} />
+          <Image
+            src="/ranking-logo.png"
+            alt="logo"
+            width={90}
+            height={90}
+            quality={100}
+          />
         </div>
         <TypographyH1
           className={
@@ -43,9 +49,9 @@ export default async function RankingsPage() {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-md md:text-lg font-semibold cursor-default">
-                      {item.name || "Anonymous"}
+                      {item.isPublic ? item.name || "Anonymous" : "Anonymous"}
                     </span>
-                    {item.instagram && (
+                    {item.isPublic && item.instagram && (
                       <a
                         href={`https://instagram.com/${item.instagram}`}
                         target="_blank"
@@ -65,8 +71,10 @@ export default async function RankingsPage() {
                   </div>
                 </div>
               </div>
-
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 justify-center">
+                <span className="text-md md:text-lg font-semibold cursor-default">
+                  {Number(item.score).toFixed(1)}
+                </span>
                 {item.isPublic ? (
                   <Link
                     href={`/analysis/public/${item.id}`}

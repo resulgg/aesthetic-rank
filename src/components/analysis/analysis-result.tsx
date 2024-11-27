@@ -66,7 +66,7 @@ const AnalysisResult = async ({
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-3">
+      <div className="flex flex-col items-center justify-center gap-4">
         <TypographyH2
           className={cn(
             "inline-flex animate-text-gradient bg-[200%_auto] font-extrabold bg-clip-text text-transparent",
@@ -123,6 +123,7 @@ const AnalysisResult = async ({
           </div>
         )}
       </div>
+
       <div className="text-center max-w-xl mx-auto">
         <TypographyP className="text-muted-foreground">
           {aesthetic.evaluation}
@@ -251,7 +252,7 @@ const AnalysisResult = async ({
 
         <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="font-medium">Estimated Physiological Age</h3>
+            <h3 className="font-medium">Estimated Body Age</h3>
             <span className="px-2 py-1 bg-secondary rounded-full text-xs md:text-sm">
               {bodyAge.age} years
             </span>

@@ -8,6 +8,8 @@ export const publicRoutes = [
   "/api/webhooks/ls",
   "/api/ai-analysis/generate",
   "/ranking",
+  "/terms-of-service",
+  "/privacy-policy",
 ];
 
 /**

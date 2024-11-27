@@ -7,6 +7,8 @@ export default {
     signIn: "/auth/login",
     signOut: "/",
     verifyRequest: "/auth/verify-request",
+    error: "/auth/error",
+    newUser: "/analysis",
   },
   callbacks: {
     jwt({ token, user }) {

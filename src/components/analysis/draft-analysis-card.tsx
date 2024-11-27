@@ -21,7 +21,7 @@ export function DraftAnalysisCard({ draft }: DraftAnalysisCardProps) {
     if (!draft.isPaid) {
       return `/analysis/${draft.id}/payment`;
     }
-    return `/analysis/${draft.id}/result`;
+    return `/analysis/${draft.id}`;
   };
 
   const getStatusMessage = () => {

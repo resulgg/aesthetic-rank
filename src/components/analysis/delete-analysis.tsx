@@ -57,7 +57,7 @@ const DeleteAnalysisButton = ({
         disabled={isPending}
         onClick={() => setShowConfirmDialog(true)}
         className={cn(className)}
-        variant="destructive"
+        variant="destructiveGhost"
         aria-label="Delete analysis"
       >
         {isPending ? <Loader2 className="h-5 w-5 animate-spin" /> : children}

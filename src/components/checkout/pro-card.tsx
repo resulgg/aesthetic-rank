@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Clock, Users } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -144,6 +143,10 @@ const ProCard = ({ analysisId }: { analysisId: string }) => {
         >
           Get Your Analysis Now
         </CheckoutButton>
+        <p className="text-sm text-center text-muted-foreground px-4 md:px-12">
+          One-time payment for a single comprehensive analysis. No recurring
+          charges.
+        </p>
       </CardFooter>
     </Card>
   );

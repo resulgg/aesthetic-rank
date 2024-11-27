@@ -2,8 +2,10 @@ import db from "@/db";
 import * as schema from "@/db/schema";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import NextAuth from "next-auth";
-import resend from "next-auth/providers/resend";
+import resendProvider from "next-auth/providers/resend";
+import LoginEmail from "@/components/email/login-email";
 import authConfig from "./auth.config";
+import { resendClient } from "./lib/resend-client";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: DrizzleAdapter(db, {
@@ -18,6 +20,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ...authConfig,
   providers: [
     ...authConfig.providers,
-    resend({ from: "noreply@aestheticrank.com" }),
+    resendProvider({
+      from: "noreply@aestheticrank.com",
+      sendVerificationRequest: async ({ provider, url, identifier: to }) => {
+        const { host } = new URL(url);
+        const res = await resendClient.emails.send({
+          from: provider.from || "noreply@aestheticrank.com",
+          to: to,
+          subject: `Sign in to ${host}`,
+          react: LoginEmail({ url, host }),
+        });
+        if (res.error)
+          throw new Error("Resend error: " + JSON.stringify(res.error.message));
+      },
+    }),
   ],
 });

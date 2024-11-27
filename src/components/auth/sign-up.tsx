@@ -30,12 +30,23 @@ const SignUpPage = () => {
           </div>
           <div className="relative flex justify-center text-xs uppercase">
             <span className="bg-muted rounded-lg px-2 text-muted-foreground">
-              Or continue with
+              Or
             </span>
           </div>
         </div>
 
         <SignupWithGoogle />
+
+        <p className="text-xs text-center text-muted-foreground px-8 md:px-0">
+          By continuing, you agree to our{" "}
+          <Link href="/terms-of-service" className="text-primary underline">
+            Terms of Service
+          </Link>{" "}
+          and{" "}
+          <Link href="/privacy-policy" className="text-primary underline">
+            Privacy Policy
+          </Link>
+        </p>
       </CardContent>
       <CardFooter className="flex justify-center">
         <p className="text-sm text-muted-foreground">

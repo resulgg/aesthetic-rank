@@ -61,8 +61,6 @@ export enum SkeletalStructure {
   DisproportionalFrame = "Disproportional Frame",
   RobustBoneStructure = "Robust Bone Structure",
   DelicateBoneStructure = "Delicate Bone Structure",
-  BalancedFrame = "Balanced Frame",
-  UnbalancedFrame = "Unbalanced Frame",
   StrongJoints = "Strong Joints",
   FlexibleJoints = "Flexible Joints",
   DenseBonesStructure = "Dense Bones Structure",
