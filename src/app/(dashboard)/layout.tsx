@@ -10,7 +10,7 @@ export default async function DashboardLayout({
       <header>
         <Navbar />
       </header>
-      <main className="flex-1 px-2 mb-6 pt-2 md:pt-8">{children}</main>
+      <main className="flex-1 px-2 mb-6 pt-0 md:pt-4">{children}</main>
     </div>
   );
 }

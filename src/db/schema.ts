@@ -129,6 +129,8 @@ export const photos = pgTable("photo", {
     .$onUpdate(() => new Date()),
 });
 
+export type PhotoType = typeof photos.$inferSelect;
+
 export const photosRelations = relations(photos, ({ one }) => ({
   user: one(users, {
     fields: [photos.userId],

@@ -1,6 +1,6 @@
 import "server-only";
 import db from "@/db";
-import { analysis } from "@/db/schema";
+import { analysis, PhotoType } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import redis from "@/lib/redis-client";
 
@@ -28,12 +28,13 @@ export const getAestheticRankByAnalysisId = async (analysisId: string) => {
 type AnalysisWithScore = {
   id: string;
   name: string | null;
-  instagram: string | null;
   score: number;
   gender: "male" | "female" | null;
   height: string | null;
   weight: string | null;
   isPublic: boolean | null;
+  isNsfw: boolean | null;
+  photos: PhotoType[];
 };
 // Redis ZRANGE with withScores returns an array of alternating member and score values
 type RedisZRangeResponse = Array<string | number>;
@@ -85,11 +86,14 @@ export const getTop100Aesthetic = async (): Promise<{
           columns: {
             id: true,
             name: true,
-            instagram: true,
             gender: true,
             height: true,
+            isNsfw: true,
             isPublic: true,
             weight: true,
+          },
+          with: {
+            photos: true,
           },
         })
       )
@@ -102,12 +106,13 @@ export const getTop100Aesthetic = async (): Promise<{
         return {
           id: record.id,
           name: record.name,
-          instagram: record.instagram,
           gender: record.gender,
           height: record.height,
           weight: record.weight,
           isPublic: record.isPublic,
+          isNsfw: record.isNsfw,
           score: formattedScores[index].score,
+          photos: record.photos,
         };
       })
       .filter((record): record is AnalysisWithScore => record !== null);
