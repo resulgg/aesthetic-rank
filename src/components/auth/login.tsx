@@ -36,11 +36,11 @@ const LoginPage = () => {
 
         <p className="text-xs text-center text-muted-foreground px-8 md:px-0">
           By continuing, you agree to our{" "}
-          <Link href="/terms-of-service" className="text-primary underline">
+          <Link href="/terms" className="text-primary underline">
             Terms of Service
           </Link>{" "}
           and{" "}
-          <Link href="/privacy-policy" className="text-primary underline">
+          <Link href="/privacy" className="text-primary underline">
             Privacy Policy
           </Link>
         </p>

@@ -32,7 +32,7 @@ const STEPS = [
 
 const MarketingSteps = () => {
   return (
-    <section className="space-y-8 bg-muted/50 px-4 py-8 mt-8 rounded-lg">
+    <section className="mt-8">
       <div className="grid gap-6 md:grid-cols-3 px-2">
         {STEPS.map((step) => (
           <Card key={step.step} className="relative overflow-hidden h-[400px]">

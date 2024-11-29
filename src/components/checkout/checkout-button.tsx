@@ -37,6 +37,7 @@ const CheckoutButton = ({
       onClick={onClick}
       disabled={isPending || redirectUrl !== null}
       className={className}
+      data-umami-event="Checkout"
     >
       {isPending || redirectUrl !== null ? "Loading..." : children}
     </Button>

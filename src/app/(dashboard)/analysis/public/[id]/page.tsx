@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getPublicAnalysisById } from "@/data/analyze";
@@ -8,6 +8,19 @@ import AnalysisResult from "@/components/analysis/analysis-result";
 interface AnalysisPageProps {
   params: Promise<{ id: string }>;
 }
+
+export const metadata: Metadata = {
+  title: "Public Analysis | Aesthetic Rank",
+  description:
+    "View detailed public physique analysis results and see how members of the Aesthetic Rank community compare against each other.",
+  openGraph: {
+    title: "Public Analysis | Aesthetic Rank",
+    description:
+      "View detailed public physique analysis results and see how members of the Aesthetic Rank community compare against each other.",
+    type: "website",
+  },
+};
+
 export const dynamic = "force-dynamic";
 
 export default async function AnalysisPage({ params }: AnalysisPageProps) {
@@ -56,7 +69,7 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
     <div className="max-w-6xl relative mx-auto space-y-8">
       <AnalysisResult analysis={analysis} />
       <Link
-        href="/ranking"
+        href="/rankings"
         className="flex justify-center items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
       >
         Want to see the

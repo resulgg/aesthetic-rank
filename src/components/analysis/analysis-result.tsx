@@ -489,6 +489,15 @@ const AnalysisResult = async ({
           ))}
         </div>
       </div>
+      <div className="flex justify-center">
+        <TypographyP className="text-sm text-muted-foreground">
+          {new Date(analysis.createdAt).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </TypographyP>
+      </div>
     </>
   );
 };

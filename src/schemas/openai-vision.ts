@@ -57,8 +57,6 @@ export enum SkeletalStructure {
   NarrowShoulders = "Narrow Shoulders",
   HighHipRatio = "High Hip Ratio",
   LowHipRatio = "Low Hip Ratio",
-  ProportionalFrame = "Proportional Frame",
-  DisproportionalFrame = "Disproportional Frame",
   RobustBoneStructure = "Robust Bone Structure",
   DelicateBoneStructure = "Delicate Bone Structure",
   StrongJoints = "Strong Joints",

@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getAllAnalysisByUserId } from "@/data/analyze";
@@ -6,6 +7,12 @@ import CreateAnalysisButton from "@/components/analysis/create-analysis-button";
 import { DraftAnalysisCard } from "@/components/analysis/draft-analysis-card";
 import { EmptyAnalysisState } from "@/components/analysis/empty-analysis-state";
 import { TypographyH2 } from "@/components/typography/typography-h2";
+
+export const metadata: Metadata = {
+  title: "Your Analyses | Aesthetic Rank",
+  description:
+    "View and manage your physique analyses. Track your progress and see detailed assessments of your physique through our AI-powered analysis.",
+};
 
 const AnalysisPage = async () => {
   const session = await auth();

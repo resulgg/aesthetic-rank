@@ -45,6 +45,7 @@ export const handleOrderCreated = async (
       status: payload.data.attributes.status,
       userId,
       analysisId,
+      backupAnalysisId: analysisId,
       customerId: `${payload.data.attributes.customer_id}`,
       orderNumber: `${payload.data.attributes.order_number}`,
       orderId: `${payload.data.attributes.first_order_item.order_id}`,

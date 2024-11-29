@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import Providers from "@/components/providers";
 import "./globals.css";
+import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
 
 const bricolage = Bricolage_Grotesque({
@@ -14,6 +15,10 @@ export const metadata: Metadata = {
   title: "Aesthetic Rank",
   description:
     "Get a detailed assessment of your physique through our AI-powered analysis and discover where you rank among others",
+  twitter: {
+    card: "summary_large_image",
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
 };
 
 export default function RootLayout({
@@ -23,6 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${bricolage.variable} antialiased`}>
         <Providers>
           {children}

@@ -5,47 +5,47 @@ import { TypographyP } from "@/components/typography/typography-p";
 
 const SAMPLE_ANALYSES = [
   {
-    id: "sample-1",
-    name: "Alex Thompson",
-    tier: "Elite",
-    score: 9.2,
-    image: "/male/male-pose-1.png",
-    stats: {
-      height: "6'1\"",
-      weight: "185 lbs",
-      age: 27,
-    },
-  },
-  {
-    id: "sample-2",
-    name: "Sarah Chen",
-    tier: "Supreme",
-    score: 8.8,
-    image: "/female/pose-2.png",
-    stats: {
-      height: "5'7\"",
-      weight: "135 lbs",
-      age: 24,
-    },
-  },
-  {
-    id: "sample-3",
+    id: "a95da8f7-8f49-4cea-b631-7edf311e076f",
     name: "Marcus Williams",
-    tier: "Gold",
-    score: 8.2,
+    tier: "Legendary",
+    score: 9.3,
     image: "/male/male-pose-3.png",
     stats: {
-      height: "5'11\"",
-      weight: "175 lbs",
-      age: 29,
+      height: "184 cm",
+      weight: "80 kg",
+      age: 25,
+    },
+  },
+  {
+    id: "83468156-67ef-4879-8ae1-47facf4aa7a2",
+    name: "Sarah Chen",
+    tier: "Legendary",
+    score: 9.1,
+    image: "/female/pose-2.png",
+    stats: {
+      height: "5'3",
+      weight: "119 lbs",
+      age: 25,
+    },
+  },
+  {
+    id: "79d7a79f-7c78-41eb-8f8c-5bea3526a552",
+    name: "Javier Lopez",
+    tier: "Elite",
+    score: 8.3,
+    image: "/male/male-pose-9.png",
+    stats: {
+      height: "176 cm",
+      weight: "72 kg",
+      age: 23,
     },
   },
 ];
 
 export const MarketingSampleAnalysis = () => {
   return (
-    <section className="py-8 px-4 space-y-8">
-      <div className="text-center space-y-4 max-w-3xl mx-auto">
+    <section className="py-8 space-y-8">
+      <div className="text-center space-y-4 max-w-3xl mx-auto px-6">
         <TypographyH2>Sample Analyses</TypographyH2>
         <TypographyP className="text-muted-foreground">
           Explore example aesthetic analyses from our community (click or tap to
@@ -53,7 +53,7 @@ export const MarketingSampleAnalysis = () => {
         </TypographyP>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-2">
         {SAMPLE_ANALYSES.map((analysis) => (
           <Link
             key={analysis.id}

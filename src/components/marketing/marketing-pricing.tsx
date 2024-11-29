@@ -16,9 +16,12 @@ const MarketingPricing = () => {
 
       <div className="max-w-md mx-auto">
         <div className="relative overflow-hidden rounded-lg border-2 border-border/30 hover:border-primary/30 transition-colors">
+          <div className="absolute -rotate-45 top-6 -left-8 bg-primary/90 text-white px-8 py-1 text-sm font-medium shadow-lg">
+            Limited Time
+          </div>
           <div className="relative h-[400px]">
             <Image
-              src="/male/male-pose-2.png"
+              src="/male/male-pose-8.png"
               alt="Sample physique analysis"
               fill
               className="object-cover transition-transform group-hover:scale-105"
@@ -39,9 +42,17 @@ const MarketingPricing = () => {
                   50% OFF
                 </span>
               </div>
+              <p className="text-sm text-muted-foreground">
+                One-time payment • Limited Time Offer
+              </p>
             </div>
 
-            <Button asChild className="w-full" size="lg">
+            <Button
+              asChild
+              className="w-full"
+              size="lg"
+              data-umami-event="Get Ranked Now"
+            >
               <Link href="/analysis">Get Ranked Now</Link>
             </Button>
           </div>

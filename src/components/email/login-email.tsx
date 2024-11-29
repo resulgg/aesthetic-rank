@@ -42,15 +42,14 @@ export default function LoginEmail({ url, host }: EmailTemplateProps) {
                 Sign in to {host}
               </Button>
 
-              <Text className="text-sm text-zinc-600 mt-6">
-                If you didn&apos;t request this email, you can safely ignore it.
-              </Text>
-
               <Text className="text-sm text-zinc-600 mt-4">
                 Or copy and paste this URL into your browser:{" "}
                 <Link href={url} className="text-zinc-700">
                   {url}
                 </Link>
+              </Text>
+              <Text className="text-sm text-zinc-600 mt-6">
+                If you didn&apos;t request this email, you can safely ignore it.
               </Text>
             </Section>
           </Container>

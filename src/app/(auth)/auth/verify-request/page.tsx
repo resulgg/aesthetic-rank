@@ -1,5 +1,18 @@
+import { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { Card, CardDescription, CardHeader } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: "Check Your Email | Aesthetic Rank",
+  description:
+    "Please check your email for a sign in link to access your Aesthetic Rank account.",
+  openGraph: {
+    title: "Check Your Email | Aesthetic Rank",
+    description:
+      "Please check your email for a sign in link to access your Aesthetic Rank account.",
+    type: "website",
+  },
+};
 
 export default function VerifyRequestPage() {
   return (

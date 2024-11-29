@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getTop100Aesthetic } from "@/data/rank";
@@ -5,13 +6,25 @@ import { EyeOff, User } from "lucide-react";
 import { TypographyH1 } from "@/components/typography/typography-h1";
 import { cn } from "@/lib/utils";
 
+export const metadata: Metadata = {
+  title: "Top 100 Rankings | Aesthetic Rank",
+  description:
+    "Discover the top 100 public aesthetic physiques ranked by our AI analysis system. Compare physiques, stats and scores of the highest ranked members.",
+  openGraph: {
+    title: "Top 100 Rankings | Aesthetic Rank",
+    description:
+      "Discover the top 100 public aesthetic physiques ranked by our AI analysis system.",
+    type: "website",
+  },
+};
+
 export const dynamic = "force-dynamic";
 
 export default async function RankingsPage() {
   const { data, cacheExpiresAt, totalMembers } = await getTop100Aesthetic();
 
   return (
-    <div className="space-y-8 md:space-y-12">
+    <div className="space-y-8 md:space-y-12 pb-8">
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="flex justify-center items-center bg-muted/50 px-10 py-8 rounded-full border-2 border-border">
           <Image
@@ -30,9 +43,23 @@ export default async function RankingsPage() {
           Top 100
         </TypographyH1>
         <span className="max-w-2xl px-16 md:px-0 text-xs md:text-base text-muted-foreground">
-          Discover the top 100 aesthetic physiques out of {totalMembers} total
-          analyses
+          Discover the top 100 public aesthetic physiques out of {totalMembers}{" "}
+          total analyses
         </span>
+        <div className="flex items-center justify-center w-full">
+          {cacheExpiresAt && (
+            <div className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-full border border-border/30">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs md:text-sm text-muted-foreground">
+                The rankings will be updated within{" "}
+                <span className="font-medium text-primary">
+                  {Math.ceil((cacheExpiresAt - Date.now()) / 1000 / 60)}
+                </span>{" "}
+                minutes
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -81,7 +108,7 @@ export default async function RankingsPage() {
                     <EyeOff className="h-20 w-20 text-muted-foreground/40" />
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-background from-10% to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background from-5% to-transparent to-50%" />
               </div>
 
               <div className="absolute bottom-0 w-full p-4 space-y-2">
@@ -109,15 +136,6 @@ export default async function RankingsPage() {
             </div>
           </Link>
         ))}
-      </div>
-
-      <div className="flex items-center justify-center w-full">
-        {cacheExpiresAt && (
-          <span className="text-xs md:text-sm text-muted-foreground">
-            Next update in{" "}
-            {Math.ceil((cacheExpiresAt - Date.now()) / 1000 / 60)} minutes
-          </span>
-        )}
       </div>
     </div>
   );

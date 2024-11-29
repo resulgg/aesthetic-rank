@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getUserProfileAndPayments } from "@/data/user";
@@ -17,6 +18,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+export const metadata: Metadata = {
+  title: "Profile | Aesthetic Rank",
+  description:
+    "View and manage your Aesthetic Rank profile, payment history, and account settings.",
+  openGraph: {
+    title: "Profile | Aesthetic Rank",
+    description:
+      "View and manage your Aesthetic Rank profile, payment history, and account settings.",
+    type: "website",
+  },
+};
 
 export default async function ProfilePage() {
   const session = await auth();

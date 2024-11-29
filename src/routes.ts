@@ -7,9 +7,10 @@ export const publicRoutes = [
   "/",
   "/api/webhooks/ls",
   "/api/ai-analysis/generate",
-  "/ranking",
+  "/rankings",
   "/terms",
   "/privacy",
+  "/support",
 ];
 
 /**

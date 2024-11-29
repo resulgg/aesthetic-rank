@@ -10,7 +10,16 @@ export const MarketingFooter = () => {
             © {new Date().getFullYear()} AestheticRank. All rights reserved.
           </TypographyP>
         </div>
-        <nav className="flex gap-4" aria-label="Footer navigation">
+        <nav
+          className="flex flex-wrap gap-4 justify-center md:justify-end"
+          aria-label="Footer navigation"
+        >
+          <Link
+            href="/support"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Support
+          </Link>
           <Link
             href="/privacy"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -24,7 +33,7 @@ export const MarketingFooter = () => {
             Terms of Service
           </Link>
           <Link
-            href="mailto:support@aestheticrank.com"
+            href="mailto:aestheticrank@gmail.com"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             Contact

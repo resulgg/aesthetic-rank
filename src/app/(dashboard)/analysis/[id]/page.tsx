@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
@@ -11,6 +12,13 @@ import { TypographyP } from "@/components/typography/typography-p";
 interface AnalysisPageProps {
   params: Promise<{ id: string }>;
 }
+
+export const metadata: Metadata = {
+  title: "Analysis Details | Aesthetic Rank",
+  description:
+    "View your detailed physique analysis results, manage visibility settings, and see how you compare to others in the Aesthetic Rank community.",
+};
+
 export const dynamic = "force-dynamic";
 export default async function AnalysisPage({ params }: AnalysisPageProps) {
   const session = await auth();
@@ -104,7 +112,7 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
         </div>
       </div>
       <Link
-        href="/ranking"
+        href="/rankings"
         className="flex justify-center items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
       >
         Want to see the

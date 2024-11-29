@@ -31,12 +31,12 @@ const FAQ_ITEMS = [
   {
     question: "Is my data kept private?",
     answer:
-      "Yes, absolutely. Your photos and personal information are processed securely by our AI system. You can choose to make your analysis public or keep it private. If you choose private, only anonymous data (height, weight, sex, and aesthetic score) will be visible in rankings.",
+      "Yes, absolutely. Your photos and personal information are processed securely by our AI system. You can choose to make your analysis public or keep it private. If you make it public, your analysis will be visible to everyone and will appear in the public ranking.",
   },
   {
     question: "Are refunds available after the analysis is generated?",
     answer:
-      "Due to the high computational power required by our AI system to generate detailed analyses, we cannot offer refunds once payment is made. The analysis process begins immediately after payment and consumes significant computing resources. However, if you believe there are errors in your results, please don't hesitate to contact us and we'll be happy to review your case.",
+      "Due to the high computational power required by our AI system to generate detailed analyses, we cannot offer refunds once payment is made. The analysis process begins immediately after payment and consumes significant computing resources. However, if you experience any technical issues during your analysis (such as getting stuck on the loading screen or results not displaying), we offer a 100% refund or free re-analysis. If you believe there are errors in your results, please don't hesitate to contact us and we'll be happy to review your case.",
   },
   {
     question: "Can I delete my analysis, photos, or entire account?",
@@ -46,7 +46,7 @@ const FAQ_ITEMS = [
   {
     question: "How can I contact support if I have an issue?",
     answer:
-      "If you encounter any problems or have questions, you can reach our support team at support@aestheticrank.com. Our team typically responds within 24 hours on business days.",
+      "If you encounter any problems or have questions, you can reach our support team at aestheticrank@gmail.com. Our team typically responds within 24 hours on business days.",
   },
 ];
 

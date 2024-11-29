@@ -59,7 +59,7 @@ export function CompletedAnalysisCard({
               <FileEdit className="w-20 h-20 text-muted-foreground/40" />
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background from-10% via-40% via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background from-5% to-transparent to-60%" />
         </div>
 
         <CardContent className="absolute bottom-0 left-0 right-0 p-6 space-y-4">
@@ -73,7 +73,7 @@ export function CompletedAnalysisCard({
               <p className="text-sm text-muted-foreground">{analysis.weight}</p>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <TypographyH4>Gender</TypographyH4>
+              <TypographyH4>Sex</TypographyH4>
               <p className="text-sm text-muted-foreground capitalize">
                 {analysis.gender}
               </p>

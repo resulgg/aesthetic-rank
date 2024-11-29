@@ -81,17 +81,13 @@ export const AI_PROMPT = `
      - Narrow Shoulders: Slim shoulder structure
      - High Hip Ratio: Elevated hip proportion
      - Low Hip Ratio: Reduced hip proportion
-     - Proportional Frame: Balanced skeletal ratios
-     - Disproportional Frame: Uneven skeletal ratios
      - Robust Bone Structure: Strong, dense bones
      - Delicate Bone Structure: Fine, lighter bones
-     - Balanced Frame: Harmonious skeletal proportions
-     - Unbalanced Frame: Asymmetric skeletal proportions
      - Strong Joints: Robust joint structure
      - Flexible Joints: Highly mobile joints
      - Dense Bones Structure: Heavy, compact bones
      - Light Bones Structure: Less dense bone composition
-     Explain how the skeletal structure influences overall aesthetics and how it aligns with their physique. Note: Only select compatible skeletal frame types that align with each other (e.g., don't combine medium frame with proportional frame, or narrow clavicles with broad shoulders). Provide high scores (10, 9.9, 9.8) when truly deserved.
+     Explain how the skeletal structure influences overall aesthetics and how it aligns with their physique. Note: Only select compatible skeletal frame types that align with each other (e.g., don't combine narrow clavicles with broad shoulders). Provide high scores (10, 9.9, 9.8) when truly deserved.
 
  11. **BMI Analysis**: Calculate and interpret BMI, categorizing into types:
      - Underweight: BMI below 18.5 indicates potential undernourishment

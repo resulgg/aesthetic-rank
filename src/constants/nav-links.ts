@@ -1,8 +1,8 @@
 export const NAV_LINKS = [
   {
     id: 1,
-    label: "Ranking",
-    href: "/ranking",
+    label: "Rankings",
+    href: "/rankings",
   },
   {
     id: 2,
@@ -18,5 +18,10 @@ export const NAV_LINKS = [
     id: 4,
     label: "Billing",
     href: "/profile",
+  },
+  {
+    id: 5,
+    label: "Support",
+    href: "/support",
   },
 ];

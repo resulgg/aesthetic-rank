@@ -148,6 +148,7 @@ export const payments = pgTable("payment", {
   analysisId: uuid("analysis_id").references(() => analysis.id, {
     onDelete: "set null",
   }),
+  backupAnalysisId: uuid("backup_analysis_id"),
   status: text("status").notNull(),
   customerId: text("customer_id").notNull(),
   refundedAt: timestamp("refunded_at", { mode: "string" }),

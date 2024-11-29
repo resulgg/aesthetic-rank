@@ -15,7 +15,12 @@ const Navbar = async () => {
         {session ? (
           <UserButton />
         ) : (
-          <Button variant="default" className="h-12 font-semibold" asChild>
+          <Button
+            variant="default"
+            className="h-12 font-semibold"
+            asChild
+            data-umami-event="Get Ranked"
+          >
             <Link href="/auth/signup">Get Ranked</Link>
           </Button>
         )}
