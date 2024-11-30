@@ -11,7 +11,7 @@ const STEPS = [
       "Enter your height, weight and sex to get started with your analysis",
     icon: <Ruler className="h-8 w-8" />,
     step: 1,
-    image: "/male/male-pose-2.png",
+    image: "/male/male-pose-4.png",
   },
   {
     title: "Upload Photos",
@@ -26,7 +26,7 @@ const STEPS = [
       "Get a detailed physique analysis and aesthetic ranking in under a minute.",
     icon: <ArrowUpCircle className="h-8 w-8" />,
     step: 3,
-    image: "/male/male-pose-4.png",
+    image: "/male/male-pose-1.png",
   },
 ];
 
