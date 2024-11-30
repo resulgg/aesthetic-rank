@@ -444,7 +444,7 @@ const AnalysisResult = async ({
       {/* Muscle Groups */}
       <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
         <TypographyH2 className="p-2">Muscle Groups</TypographyH2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {Object.entries(body).map(([muscle, data]) => (
             <Card key={muscle} className="p-4 bg-card/50 backdrop-blur-sm">
               <h3 className="font-medium capitalize mb-2">{muscle}</h3>
@@ -468,7 +468,7 @@ const AnalysisResult = async ({
       {/* Body Proportions */}
       <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
         <TypographyH2 className="p-2">Body Proportions</TypographyH2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {Object.entries(ratios).map(([ratio, data]) => (
             <Card
               key={ratio}
