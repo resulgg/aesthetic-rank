@@ -31,7 +31,7 @@ export default async function RankingsPage() {
             src="/ranking-logo.png"
             alt="logo"
             width={90}
-            height={90}
+            height={103}
             quality={100}
           />
         </div>
