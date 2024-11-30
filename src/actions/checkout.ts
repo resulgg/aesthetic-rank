@@ -39,7 +39,6 @@ export const checkoutUrl = async (
         redirectUrl: `${process.env.NEXT_PUBLIC_APP_URL}/analysis/${analysisId}/status`,
       },
     });
-    console.log("checkout", checkout.data?.data.attributes);
 
     return { url: checkout.data?.data.attributes.url };
   } catch (error) {

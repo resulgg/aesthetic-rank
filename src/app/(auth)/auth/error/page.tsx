@@ -1,6 +1,19 @@
+import { Metadata } from "next";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardDescription, CardHeader } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: "Authentication Error | Aesthetic Rank",
+  description:
+    "An error occurred during the authentication process. Email sign-in is temporarily disabled, please use Google Sign-in instead.",
+  openGraph: {
+    title: "Authentication Error | Aesthetic Rank",
+    description:
+      "An error occurred during the authentication process. Email sign-in is temporarily disabled, please use Google Sign-in instead.",
+    type: "website",
+  },
+};
 
 export default function ErrorPage() {
   return (

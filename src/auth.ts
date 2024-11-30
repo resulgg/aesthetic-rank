@@ -21,11 +21,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     ...authConfig.providers,
     resendProvider({
-      from: "noreply@aestheticrank.com",
+      from: process.env.RESEND_FROM,
       sendVerificationRequest: async ({ provider, url, identifier: to }) => {
         const { host } = new URL(url);
         const res = await resendClient.emails.send({
-          from: provider.from || "noreply@aestheticrank.com",
+          from: provider.from || process.env.RESEND_FROM!,
           to: to,
           subject: `Sign in to ${host}`,
           react: LoginEmail({ url, host }),
