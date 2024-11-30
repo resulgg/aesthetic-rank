@@ -8,7 +8,7 @@ const Navbar = async () => {
   const session = await auth();
   return (
     <nav className="flex items-center justify-between z-50 border border-border bg-muted/50 rounded-lg p-4">
-      <Link href="/analysis">
+      <Link href="/">
         <Logo />
       </Link>
       <div className="flex items-center">
