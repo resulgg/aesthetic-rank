@@ -26,7 +26,7 @@ const STEPS = [
       "Get a detailed physique analysis and aesthetic ranking in under a minute.",
     icon: <ArrowUpCircle className="h-8 w-8" />,
     step: 3,
-    image: "/male/male-pose-1.png",
+    image: "/male/male-pose-6.png",
   },
 ];
 

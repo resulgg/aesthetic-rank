@@ -143,7 +143,7 @@ const ProCard = ({ analysisId }: { analysisId: string }) => {
         >
           Get Your Analysis Now
         </CheckoutButton>
-        <p className="text-sm text-center text-muted-foreground px-4 md:px-12">
+        <p className="text-sm text-center text-muted-foreground px-2 md:px-12">
           One-time payment for a single comprehensive analysis. No recurring
           charges.
         </p>

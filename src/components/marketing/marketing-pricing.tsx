@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const MarketingPricing = () => {
   return (
-    <section className="py-8 px-4 space-y-8">
+    <section className="py-8 space-y-8">
       <div className="text-center space-y-4 max-w-3xl mx-auto">
         <TypographyH2>Pricing</TypographyH2>
         <TypographyP className="text-muted-foreground">

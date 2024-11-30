@@ -9,8 +9,8 @@ import MarketingSteps from "@/components/marketing/marketing-steps";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen max-w-screen-xl mx-auto p-2 gap-10 md:gap-20">
-      <header className="mt-2">
+    <div className="flex flex-col min-h-screen max-w-screen-xl mx-auto p-3 gap-10 md:gap-20">
+      <header>
         <Navbar />
       </header>
       <MarketingHero />

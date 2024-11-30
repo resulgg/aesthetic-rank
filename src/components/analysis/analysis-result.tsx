@@ -206,7 +206,7 @@ const AnalysisResult = async ({
         </div>
       </div>
       {/* Additional Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-muted/50 p-6 border border-border rounded-lg ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-muted/50 p-4 border border-border rounded-lg ">
         <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="font-medium">Genetic Potential</h3>
@@ -293,8 +293,8 @@ const AnalysisResult = async ({
       </div>
 
       {/* Body Composition Analysis */}
-      <div className="border border-border rounded-lg p-6 space-y-6 bg-muted/50">
-        <TypographyH2>Body Composition Analysis</TypographyH2>
+      <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
+        <TypographyH2 className="p-2">Body Composition Analysis</TypographyH2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
             <div className="flex items-center justify-between">
@@ -344,8 +344,8 @@ const AnalysisResult = async ({
       </div>
 
       {/* Structural Analysis */}
-      <div className="border border-border rounded-lg p-6 space-y-6 bg-muted/50">
-        <TypographyH2>Structural Analysis</TypographyH2>
+      <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
+        <TypographyH2 className="p-2">Structural Analysis</TypographyH2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
             <div className="flex items-center justify-between">
@@ -391,8 +391,8 @@ const AnalysisResult = async ({
       </div>
 
       {/* Muscle Analysis */}
-      <div className="border border-border rounded-lg p-6 space-y-6 bg-muted/50">
-        <TypographyH2>Muscle Analysis</TypographyH2>
+      <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
+        <TypographyH2 className="p-2">Muscle Analysis</TypographyH2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
             <div className="flex items-center justify-between">
@@ -442,8 +442,8 @@ const AnalysisResult = async ({
       </div>
 
       {/* Muscle Groups */}
-      <div className="border border-border rounded-lg p-6 space-y-6 bg-muted/50">
-        <TypographyH2>Muscle Groups</TypographyH2>
+      <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
+        <TypographyH2 className="p-2">Muscle Groups</TypographyH2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {Object.entries(body).map(([muscle, data]) => (
             <Card key={muscle} className="p-4 bg-card/50 backdrop-blur-sm">
@@ -466,8 +466,8 @@ const AnalysisResult = async ({
       </div>
 
       {/* Body Proportions */}
-      <div className="border border-border rounded-lg p-6 space-y-6 bg-muted/50">
-        <TypographyH2>Body Proportions</TypographyH2>
+      <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
+        <TypographyH2 className="p-2">Body Proportions</TypographyH2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {Object.entries(ratios).map(([ratio, data]) => (
             <Card
@@ -491,6 +491,7 @@ const AnalysisResult = async ({
       </div>
       <div className="flex justify-center">
         <TypographyP className="text-sm text-muted-foreground">
+          Created on{" "}
           {new Date(analysis.createdAt).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",

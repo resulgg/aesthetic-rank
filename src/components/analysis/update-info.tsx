@@ -103,8 +103,7 @@ function UpdateInfoForm({
                 />
               </FormControl>
               <FormDescription>
-                Enter your height in cm or feet/inches (e.g. 170 or
-                5&apos;11&quot;)
+                Enter your height in cm or feet/inches (e.g. 170 or 5&apos;11)
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -173,7 +172,7 @@ function UpdateInfoForm({
                 className="mr-2 h-4 w-4 animate-spin"
                 aria-hidden="true"
               />
-              Creating...
+              Loading...
             </>
           ) : (
             "Continue"

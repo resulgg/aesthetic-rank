@@ -62,7 +62,7 @@ const FEATURES = [
 
 export const MarketingFeatures = () => {
   return (
-    <section className="mt-10 px-4 space-y-8 relative overflow-hidden bg-gradient-to-b from-background via-background/80 to-background">
+    <section className="mt-10 space-y-8 relative overflow-hidden bg-gradient-to-b from-background via-background/80 to-background">
       <div className="text-center space-y-4 max-w-3xl mx-auto relative z-10">
         <TypographyH2 className="inline-flex animate-text-gradient bg-[200%_auto] font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#999999] via-[#808080] to-[#999999] dark:from-[#E8E8E8] dark:via-[#D3D3D3] dark:to-[#E8E8E8]">
           Your Comprehensive Body Analysis Report

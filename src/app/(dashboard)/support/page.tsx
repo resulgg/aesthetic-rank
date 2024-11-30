@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function SupportPage() {
   return (
-    <div className="container mx-auto max-w-3xl space-y-8 border border-border rounded-lg p-8">
+    <div className="container mx-auto max-w-3xl space-y-8 border border-border rounded-lg p-4 md:p-8">
       <div className="space-y-4">
         <TypographyH1 className="text-center">Support Center</TypographyH1>
         <TypographyP className="text-muted-foreground text-center">
