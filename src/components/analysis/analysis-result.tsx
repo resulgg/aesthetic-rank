@@ -205,91 +205,93 @@ const AnalysisResult = async ({
           </ul>
         </div>
       </div>
-      {/* Additional Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-muted/50 p-4 border border-border rounded-lg ">
-        <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="font-medium">Genetic Potential</h3>
-            <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-              {geneticPotential.score.toFixed(1)}/10
-            </span>
-          </div>
-          <div className="space-y-4">
-            <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-              {geneticPotential.potential}
-            </span>
-            <TypographyP>{geneticPotential.evaluation}</TypographyP>
-          </div>
-        </Card>
-
-        <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-          <h3 className="font-medium">Sport Recommendation</h3>
-          <div className="space-y-4">
-            <div className="flex flex-wrap gap-2">
-              {sportRecommendation.recommendedSport.map((sport, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1 bg-secondary rounded-full text-sm"
-                >
-                  {sport}
-                </span>
-              ))}
+      {/* Overview */}
+      <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
+        <TypographyH2 className="p-2">Overview</TypographyH2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Genetic Potential</h3>
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {geneticPotential.score.toFixed(1)}/10
+              </span>
             </div>
-            <TypographyP>{sportRecommendation.evaluation}</TypographyP>
-          </div>
-        </Card>
+            <div className="space-y-4">
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {geneticPotential.potential}
+              </span>
+              <TypographyP>{geneticPotential.evaluation}</TypographyP>
+            </div>
+          </Card>
 
-        <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-          <h3 className="font-medium">Warrior Type</h3>
-          <div className="space-y-4">
-            <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-              {warriorType.type}
-            </span>
-            <TypographyP>{warriorType.evaluation}</TypographyP>
-          </div>
-        </Card>
-        {/* Age & Skin Health */}
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <h3 className="font-medium">Sport Recommendation</h3>
+            <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
+                {sportRecommendation.recommendedSport.map((sport, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 bg-secondary rounded-full text-sm"
+                  >
+                    {sport}
+                  </span>
+                ))}
+              </div>
+              <TypographyP>{sportRecommendation.evaluation}</TypographyP>
+            </div>
+          </Card>
 
-        <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="font-medium">Estimated Body Age</h3>
-            <span className="px-2 py-1 bg-secondary rounded-full text-xs md:text-sm">
-              {bodyAge.age} years
-            </span>
-          </div>
-          <div className="space-y-2">
-            <TypographyP className="text-sm">{bodyAge.evaluation}</TypographyP>
-          </div>
-        </Card>
-
-        <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="font-medium">Skin Condition</h3>
-            <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-              {skinCondition.score.toFixed(1)}/10
-            </span>
-          </div>
-          <div className="space-y-2">
-            <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-              {skinCondition.type}
-            </span>
-            <TypographyP className="text-sm">
-              {skinCondition.evaluation}
-            </TypographyP>
-          </div>
-        </Card>
-
-        <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="font-medium">Natural Status</h3>
-          </div>
-          <div className="space-y-2">
-            <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-              {isNatural.isNatural ? "👍" : "👎"}
-            </span>
-            <TypographyP className="text-sm">{isNatural.reason}</TypographyP>
-          </div>
-        </Card>
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <h3 className="font-medium">Warrior Type</h3>
+            <div className="space-y-4">
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {warriorType.type}
+              </span>
+              <TypographyP>{warriorType.evaluation}</TypographyP>
+            </div>
+          </Card>
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Vascularity</h3>
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {vascularity.score.toFixed(1)}/10
+              </span>
+            </div>
+            <div className="space-y-4">
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {vascularity.type}
+              </span>
+              <TypographyP>{vascularity.evaluation}</TypographyP>
+            </div>
+          </Card>
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Skin Condition</h3>
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {skinCondition.score.toFixed(1)}/10
+              </span>
+            </div>
+            <div className="space-y-2">
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {skinCondition.type}
+              </span>
+              <TypographyP className="text-sm">
+                {skinCondition.evaluation}
+              </TypographyP>
+            </div>
+          </Card>
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Natural Status</h3>
+            </div>
+            <div className="space-y-2">
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {isNatural.isNatural ? "👍" : "👎"}
+              </span>
+              <TypographyP className="text-sm">{isNatural.reason}</TypographyP>
+            </div>
+          </Card>
+        </div>
       </div>
 
       {/* Body Composition Analysis */}
@@ -337,6 +339,49 @@ const AnalysisResult = async ({
             <div className="space-y-2">
               <TypographyP className="text-sm">
                 {somatotype.evaluation}
+              </TypographyP>
+            </div>
+          </Card>
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Muscle Imbalances</h3>
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {muscleImbalance.score.toFixed(1)}/10
+              </span>
+            </div>
+            <div className="space-y-4">
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {muscleImbalance.imbalance}
+              </span>
+              <TypographyP>{muscleImbalance.evaluation}</TypographyP>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Body Symmetry</h3>
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {bodySymmetry.score.toFixed(1)}/10
+              </span>
+            </div>
+            <div className="space-y-4">
+              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
+                {bodySymmetry.symmetry}
+              </span>
+              <TypographyP>{bodySymmetry.description}</TypographyP>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium">Estimated Body Age</h3>
+              <span className="px-2 py-1 bg-secondary rounded-full text-xs md:text-sm">
+                {bodyAge.age} years
+              </span>
+            </div>
+            <div className="space-y-2">
+              <TypographyP className="text-sm">
+                {bodyAge.evaluation}
               </TypographyP>
             </div>
           </Card>
@@ -389,58 +434,6 @@ const AnalysisResult = async ({
           </Card>
         </div>
       </div>
-
-      {/* Muscle Analysis */}
-      <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
-        <TypographyH2 className="p-2">Muscle Analysis</TypographyH2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="font-medium">Muscle Imbalances</h3>
-              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-                {muscleImbalance.score.toFixed(1)}/10
-              </span>
-            </div>
-            <div className="space-y-4">
-              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-                {muscleImbalance.imbalance}
-              </span>
-              <TypographyP>{muscleImbalance.evaluation}</TypographyP>
-            </div>
-          </Card>
-
-          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="font-medium">Body Symmetry</h3>
-              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-                {bodySymmetry.score.toFixed(1)}/10
-              </span>
-            </div>
-            <div className="space-y-4">
-              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-                {bodySymmetry.symmetry}
-              </span>
-              <TypographyP>{bodySymmetry.description}</TypographyP>
-            </div>
-          </Card>
-
-          <Card className="p-6 bg-card/50 backdrop-blur-sm space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="font-medium">Vascularity</h3>
-              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-                {vascularity.score.toFixed(1)}/10
-              </span>
-            </div>
-            <div className="space-y-4">
-              <span className="px-3 py-1 bg-secondary rounded-full text-sm">
-                {vascularity.type}
-              </span>
-              <TypographyP>{vascularity.evaluation}</TypographyP>
-            </div>
-          </Card>
-        </div>
-      </div>
-
       {/* Muscle Groups */}
       <div className="border border-border rounded-lg p-4 space-y-6 bg-muted/50">
         <TypographyH2 className="p-2">Muscle Groups</TypographyH2>
