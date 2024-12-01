@@ -12,6 +12,7 @@ export const publicRoutes = [
   "/privacy",
   "/support",
   "/sitemap.xml",
+  "/favicon.ico",
 ];
 
 /**
