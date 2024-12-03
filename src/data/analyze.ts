@@ -164,3 +164,19 @@ export const getPublicAnalysisById = async (analysisId: string) => {
     throw new Error("Analysis not found or has been deleted.");
   }
 };
+
+export const isAnalysisOwner = async (analysisId: string, userId: string) => {
+  try {
+    const analysisOwner = await db.query.analysis.findFirst({
+      where: and(eq(analysis.id, analysisId), eq(analysis.userId, userId)),
+      columns: {
+        id: true,
+      },
+    });
+
+    return !!analysisOwner;
+  } catch (error) {
+    console.error("Error checking analysis ownership:", error);
+    return false;
+  }
+};
