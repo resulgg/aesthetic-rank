@@ -3,7 +3,7 @@ import { TypographyP } from "@/components/typography/typography-p";
 
 export const MarketingFooter = () => {
   return (
-    <footer className="mt-auto border-t py-8">
+    <footer className="mt-auto border-t py-6">
       <div className="container flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex flex-col md:flex-row items-center gap-4">
           <TypographyP className="text-muted-foreground text-sm">

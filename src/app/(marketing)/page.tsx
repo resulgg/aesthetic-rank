@@ -14,8 +14,8 @@ export default function Home() {
         <Navbar />
       </header>
       <MarketingHero />
-      <MarketingFeatures />
       <MarketingSampleAnalysis />
+      <MarketingFeatures />
       <MarketingSteps />
       <MarketingPricing />
       <MarketingFaq />

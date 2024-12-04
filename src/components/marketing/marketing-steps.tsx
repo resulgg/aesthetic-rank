@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowUpCircle, Camera, Ruler } from "lucide-react";
+import { TypographyH2 } from "@/components/typography/typography-h2";
 import { TypographyH3 } from "@/components/typography/typography-h3";
 import { TypographyP } from "@/components/typography/typography-p";
 import { Card } from "@/components/ui/card";
@@ -32,7 +33,14 @@ const STEPS = [
 
 const MarketingSteps = () => {
   return (
-    <section className="mt-8">
+    <section className="space-y-8">
+      <div className="text-center space-y-4 max-w-3xl mx-auto px-6">
+        <TypographyH2>How It Works</TypographyH2>
+        <TypographyP className="text-muted-foreground">
+          Get your comprehensive physique analysis in under 60 seconds
+        </TypographyP>
+      </div>
+
       <div className="grid gap-6 md:grid-cols-3 px-2">
         {STEPS.map((step) => (
           <Card key={step.step} className="relative overflow-hidden h-[400px]">
