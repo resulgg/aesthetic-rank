@@ -64,7 +64,10 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
 
   return (
     <div className="max-w-6xl relative mx-auto space-y-8">
-      <AnalysisResult analysis={analysis} />
+      <AnalysisResult
+        analysis={analysis}
+        isPublic={analysis.isPublic || false}
+      />
       <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 space-y-6">
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">Analysis Settings</h3>

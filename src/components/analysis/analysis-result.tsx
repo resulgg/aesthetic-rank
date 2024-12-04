@@ -10,8 +10,10 @@ import { cn } from "@/lib/utils";
 
 const AnalysisResult = async ({
   analysis,
+  isPublic = false,
 }: {
   analysis: SelectAnalysisAndPhotos;
+  isPublic?: boolean;
 }) => {
   const {
     body,
@@ -129,6 +131,20 @@ const AnalysisResult = async ({
           {aesthetic.evaluation}
         </TypographyP>
       </div>
+      {!isPublic && (
+        <div className="rounded-lg border border-amber-500/20 bg-amber-500/10 p-4 text-center md:max-w-2xl md:mx-auto">
+          <div className="flex items-center justify-center gap-2 text-amber-700 dark:text-amber-300">
+            <AlertTriangle className="h-5 w-5" />
+            <span className="font-medium">Private Analysis</span>
+          </div>
+          <p className="mt-2 text-sm text-muted-foreground">
+            This analysis is currently private. If you want to share your
+            results with friends or on social media, you&apos;ll need to make it
+            public first - otherwise they won&apos;t be able to see it. Scroll
+            down to change your visibility settings.
+          </p>
+        </div>
+      )}
 
       {/* Core Metrics */}
       <div className="grid grid-cols-3 gap-4 rounded-lg p-6 border border-border bg-muted/50">

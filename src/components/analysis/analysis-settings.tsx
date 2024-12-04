@@ -103,10 +103,13 @@ export function AnalysisSettings({
       trigger={
         <Button
           variant="ghost"
-          className="text-foreground cursor-pointer rounded-full p-2 h-8 w-8 bg-muted/50"
+          className="text-foreground cursor-pointer rounded-lg px-3 py-1.5 bg-muted/50 flex items-center gap-2 h-8"
           asChild
         >
-          <Settings />
+          <div className="flex items-center gap-2">
+            <Settings className="h-4 w-4" />
+            <span className="text-sm">Settings</span>
+          </div>
         </Button>
       }
       title="Analysis Settings"
