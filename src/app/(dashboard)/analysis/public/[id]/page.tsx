@@ -67,7 +67,7 @@ export default async function AnalysisPage({ params }: AnalysisPageProps) {
 
   return (
     <div className="max-w-6xl relative mx-auto space-y-8">
-      <AnalysisResult analysis={analysis} />
+      <AnalysisResult analysis={analysis} isPublic={analysis.isPublic} />
       <Link
         href="/rankings"
         className="flex justify-center items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
