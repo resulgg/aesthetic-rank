@@ -34,6 +34,18 @@ export default function RootLayout({
           data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
           strategy="afterInteractive"
         />
+        <link
+          rel="icon"
+          href="/favicon.ico"
+          sizes="48x48"
+          type="image/x-icon"
+        />
+        <link
+          rel="shortcut icon"
+          href="/favicon.ico"
+          type="image/x-icon"
+          sizes="48x48"
+        />
       </head>
       <body className={`${bricolage.variable} antialiased`}>
         <Providers>
