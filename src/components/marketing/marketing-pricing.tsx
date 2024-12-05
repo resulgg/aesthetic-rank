@@ -53,7 +53,7 @@ const MarketingPricing = () => {
               size="lg"
               data-umami-event="Get Ranked Now"
             >
-              <Link href="/analysis">Get Ranked Now</Link>
+              <Link href="/analysis">Get Ranked</Link>
             </Button>
           </div>
         </div>
