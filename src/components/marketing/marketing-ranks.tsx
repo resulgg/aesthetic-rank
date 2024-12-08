@@ -91,7 +91,7 @@ const MarketingRanks = () => {
     <div className="space-y-12 py-8">
       <div className="text-center space-y-4">
         <TypographyH2>Aesthetic Ranking System</TypographyH2>
-        <TypographyP className="text-muted-foreground max-w-2xl mx-auto px-4">
+        <TypographyP className="text-muted-foreground max-w-2xl mx-auto px-4 md:px-0">
           Our sophisticated ranking system evaluates physiques based on multiple
           factors including proportions, symmetry, muscle development, and
           overall aesthetic harmony. Each rank represents a distinct level of
