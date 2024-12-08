@@ -4,6 +4,7 @@ import MarketingFeatures from "@/components/marketing/marketing-features";
 import MarketingFooter from "@/components/marketing/marketing-footer";
 import MarketingHero from "@/components/marketing/marketing-hero";
 import MarketingPricing from "@/components/marketing/marketing-pricing";
+import MarketingRanks from "@/components/marketing/marketing-ranks";
 import MarketingSampleAnalysis from "@/components/marketing/marketing-sample-analysis";
 import MarketingSteps from "@/components/marketing/marketing-steps";
 
@@ -15,6 +16,7 @@ export default function Home() {
       </header>
       <MarketingHero />
       <MarketingSampleAnalysis />
+      <MarketingRanks />
       <MarketingFeatures />
       <MarketingSteps />
       <MarketingPricing />

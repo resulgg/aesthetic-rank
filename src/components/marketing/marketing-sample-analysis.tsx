@@ -5,39 +5,36 @@ import { TypographyP } from "@/components/typography/typography-p";
 
 const SAMPLE_ANALYSES = [
   {
-    id: "a95da8f7-8f49-4cea-b631-7edf311e076f",
-    name: "Marcus Williams",
+    id: "ceb1c517-6582-4b25-acb3-bb279778d21c",
+    name: "Natalia Reed",
     tier: "Legendary",
-    score: 9.3,
-    image: "/male/male-pose-3.png",
-    stats: {
-      height: "184 cm",
-      weight: "80 kg",
-      age: 25,
-    },
-  },
-  {
-    id: "83468156-67ef-4879-8ae1-47facf4aa7a2",
-    name: "Sarah Chen",
-    tier: "Legendary",
-    score: 9.1,
-    image: "/female/pose-2.png",
+    score: 9.2,
+    image: "61897e65-42ef-46ef-9ec7-519cd8f69768.jpeg",
     stats: {
       height: "5'3",
-      weight: "119 lbs",
-      age: 25,
+      weight: "114 lbs",
     },
   },
   {
-    id: "79d7a79f-7c78-41eb-8f8c-5bea3526a552",
-    name: "Javier Lopez",
-    tier: "Elite",
-    score: 8.3,
-    image: "/male/male-pose-9.png",
+    id: "7d0ecb32-ae17-4794-8568-8d985be83c78",
+    name: "Daniel Hernandez",
+    tier: "Legendary",
+    score: 9.2,
+    image: "573cbff7-b9e7-45f8-9787-0e6d096d61a8.jpeg",
     stats: {
-      height: "176 cm",
-      weight: "72 kg",
-      age: 23,
+      height: "5'9",
+      weight: "198 lbs",
+    },
+  },
+  {
+    id: "112cf89f-c089-4a78-8cd1-43ec64d6738b",
+    name: "Karen Edwards",
+    tier: "Legendary",
+    score: 9,
+    image: "0aa503a4-0673-4e42-a5ce-2008fcf3d8b2.jpeg",
+    stats: {
+      height: "5'3",
+      weight: "121 lbs",
     },
   },
 ];
@@ -63,7 +60,7 @@ export const MarketingSampleAnalysis = () => {
             <div className="relative overflow-hidden rounded-lg border-2 border-border/30 hover:border-primary/30 transition-colors">
               <div className="relative h-[400px]">
                 <Image
-                  src={analysis.image}
+                  src={`https://${process.env.NEXT_PUBLIC_R2_PUBLIC_URL}/${analysis.image}`}
                   alt={`${analysis.name}'s physique analysis`}
                   fill
                   className="object-cover transition-transform group-hover:scale-105"
