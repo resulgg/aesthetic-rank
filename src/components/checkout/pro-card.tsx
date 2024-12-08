@@ -64,12 +64,6 @@ const FEATURES = [
     description:
       "Get your comprehensive report in under 60 seconds using our advanced AI vision technology",
   },
-  {
-    icon: "🔒",
-    title: "Limited Time Offer",
-    description:
-      "Get lifetime access to your personalized report at our special 50% discount price - Only $9.99!",
-  },
 ];
 
 const ProCard = ({ analysisId }: { analysisId: string }) => {
@@ -104,13 +98,6 @@ const ProCard = ({ analysisId }: { analysisId: string }) => {
         <div className="flex justify-end">
           <div className="flex items-center gap-3 bg-secondary/50 px-4 py-3 rounded-lg backdrop-blur-sm border border-primary/10">
             <div className="text-3xl font-bold text-primary">$9.99</div>
-            <div className="h-7 w-[1px] bg-foreground/10"></div>
-            <div className="flex flex-col">
-              <span className="text-sm text-foreground line-through">
-                $19.99
-              </span>
-              <span className="text-xs text-primary font-medium">50% OFF</span>
-            </div>
           </div>
         </div>
       </CardHeader>

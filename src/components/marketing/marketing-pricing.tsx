@@ -31,20 +31,12 @@ const MarketingPricing = () => {
           </div>
 
           <div className="absolute bottom-0 w-full p-6 space-y-4">
-            <div className="space-y-4">
+            <div className="space-y-2">
               <h3 className="font-semibold text-2xl">AI Physique Analysis</h3>
               <div className="flex items-center gap-3">
                 <span className="text-3xl font-bold">$9.99</span>
-                <span className="text-muted-foreground line-through">
-                  $19.99
-                </span>
-                <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-sm font-medium">
-                  50% OFF
-                </span>
               </div>
-              <p className="text-sm text-muted-foreground">
-                One-time payment • Limited Time Offer
-              </p>
+              <p className="text-sm text-muted-foreground">One-time payment</p>
             </div>
 
             <Button

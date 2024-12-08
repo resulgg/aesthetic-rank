@@ -6,7 +6,6 @@ import setUpLemonSqueezy from "@/lib/lemon-squeezy";
 
 const STORE_ID = process.env.LEMONSQUEEZY_STORE_ID!;
 const PRODUCT_ID = process.env.LEMONSQUEEZY_PRODUCT_ID!;
-const DISCOUNT_CODE = process.env.LEMONSQUEEZY_DISCOUNT_CODE!;
 type CheckoutResponse = {
   url?: string;
   error?: string;
@@ -33,7 +32,6 @@ export const checkoutUrl = async (
           userId: session.user.id,
           analysisId,
         },
-        discountCode: DISCOUNT_CODE,
       },
       productOptions: {
         redirectUrl: `${process.env.NEXT_PUBLIC_APP_URL}/analysis/${analysisId}/status`,
