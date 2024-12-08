@@ -43,9 +43,9 @@ export const MarketingSampleAnalysis = () => {
   return (
     <section className="space-y-8">
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <TypographyH2>Sample AI Body Analyses</TypographyH2>
+        <TypographyH2>Example AI Physique Analyses</TypographyH2>
         <TypographyP className="text-muted-foreground">
-          Explore example aesthetic analyses from our community (click or tap to
+          Explore example physique analyses from our community (click or tap to
           view full analysis)
         </TypographyP>
       </div>
