@@ -8,8 +8,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
@@ -91,7 +89,7 @@ const MarketingRanks = () => {
     <div className="space-y-12 py-8">
       <div className="text-center space-y-4">
         <TypographyH2>Aesthetic Ranking System</TypographyH2>
-        <TypographyP className="text-muted-foreground max-w-2xl mx-auto px-4 md:px-0">
+        <TypographyP className="text-muted-foreground max-w-2xl mx-auto px-2 md:px-0">
           Our sophisticated ranking system evaluates physiques based on multiple
           factors including proportions, symmetry, muscle development, and
           overall aesthetic harmony. Each rank represents a distinct level of
@@ -113,8 +111,8 @@ const MarketingRanks = () => {
         <CarouselContent>
           {Object.entries(rankDescriptions).map(([rank, info]) => (
             <CarouselItem key={rank} className="md:basis-1/2 lg:basis-1/3">
-              <div className="rounded-xl bg-gradient-to-br from-zinc-100/40 to-zinc-200/40 dark:from-zinc-900/40 dark:to-zinc-800/40 backdrop-blur-sm overflow-hidden h-full flex flex-col border border-zinc-200/50 dark:border-zinc-800/50 hover:border-primary/30 dark:hover:border-zinc-700/50 transition-all duration-300 group">
-                <div className="p-6 border-b border-zinc-200/50 dark:border-zinc-800/50 bg-white/20 dark:bg-black/20">
+              <div className="rounded-lg bg-gradient-to-br from-background/80 to-background/60 backdrop-blur-sm overflow-hidden h-full flex flex-col border border-border/50 hover:border-primary/30 transition-all duration-300 group">
+                <div className="p-6 border-b border-border/50 bg-background/10">
                   <div className="flex items-center justify-between">
                     <TypographyH2
                       className={cn(
@@ -124,24 +122,24 @@ const MarketingRanks = () => {
                     >
                       {rank}
                     </TypographyH2>
-                    <span className="px-4 py-1.5 rounded-full bg-zinc-100/80 dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 text-sm font-medium border border-zinc-300/50 dark:border-zinc-700/50 backdrop-blur-sm group-hover:bg-zinc-200/80 dark:group-hover:bg-zinc-800/80 transition-colors">
+                    <span className="px-4 py-1.5 rounded-full bg-background/80 text-foreground text-sm font-medium border border-border/50 backdrop-blur-sm group-hover:bg-primary/5 transition-colors">
                       {info.score}
                     </span>
                   </div>
                 </div>
 
-                <div className="p-6 flex-grow bg-gradient-to-b from-transparent to-zinc-100/5 dark:to-black/5">
-                  <TypographyP className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                <div className="p-6 flex-grow bg-gradient-to-b from-transparent to-background/5">
+                  <TypographyP className="text-sm leading-relaxed text-muted-foreground">
                     {info.description}
                   </TypographyP>
                 </div>
 
-                <div className="p-6 bg-zinc-50/20 dark:bg-black/20 border-t border-zinc-200/50 dark:border-zinc-800/50">
+                <div className="p-6 bg-background/5 border-t border-border/50">
                   <div className="space-y-3">
-                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+                    <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
                       Characteristics
                     </div>
-                    <div className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+                    <div className="text-sm leading-relaxed text-foreground/80">
                       {info.characteristics}
                     </div>
                   </div>
@@ -150,8 +148,6 @@ const MarketingRanks = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
         <div className="text-center mt-4">
           <p className="text-sm text-muted-foreground">
             Swipe to explore all ranks

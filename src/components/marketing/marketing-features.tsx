@@ -77,7 +77,7 @@ export const MarketingFeatures = () => {
         {FEATURES.map((feature, index) => (
           <div
             key={index}
-            className="flex items-start gap-3 py-3 px-4 rounded-lg border-2 border-border/30 hover:border-primary/30 backdrop-blur-sm transition-colors bg-muted/50"
+            className="flex items-start gap-3 py-3 px-4 rounded-lg border-2 border-border/30 hover:border-primary/30 backdrop-blur-sm transition-colors"
           >
             <span className="text-xl shrink-0 mt-1" aria-hidden="true">
               {feature.icon}

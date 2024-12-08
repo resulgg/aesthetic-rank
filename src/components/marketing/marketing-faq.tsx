@@ -63,7 +63,7 @@ export const MarketingFaq = () => {
       <Accordion
         type="single"
         collapsible
-        className="max-w-3xl mx-auto bg-muted/50 px-4 py-2 rounded-lg"
+        className="max-w-3xl mx-auto px-4 py-2 rounded-lg"
       >
         {FAQ_ITEMS.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`}>

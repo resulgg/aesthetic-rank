@@ -42,7 +42,7 @@ const SAMPLE_ANALYSES = [
 export const MarketingSampleAnalysis = () => {
   return (
     <section className="space-y-8">
-      <div className="text-center space-y-4 max-w-3xl mx-auto px-6">
+      <div className="text-center space-y-4 max-w-3xl mx-auto">
         <TypographyH2>Sample AI Body Analyses</TypographyH2>
         <TypographyP className="text-muted-foreground">
           Explore example aesthetic analyses from our community (click or tap to
