@@ -96,7 +96,7 @@ const ProCard = ({ analysisId }: { analysisId: string }) => {
       </div>
       <CardHeader className="relative z-10 p-2">
         <div className="flex justify-end">
-          <div className="flex items-center gap-3 bg-secondary/50 px-4 py-3 rounded-lg backdrop-blur-sm border border-primary/10">
+          <div className="flex items-center gap-3 bg-secondary/50 px-4 py-2 rounded-lg backdrop-blur-sm border border-primary/10">
             <div className="text-3xl font-bold text-primary">$9.99</div>
           </div>
         </div>

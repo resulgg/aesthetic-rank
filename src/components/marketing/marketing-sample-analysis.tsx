@@ -45,8 +45,7 @@ export const MarketingSampleAnalysis = () => {
       <div className="text-center space-y-4 max-w-3xl mx-auto">
         <TypographyH2>Example AI Physique Analyses</TypographyH2>
         <TypographyP className="text-muted-foreground">
-          Explore example physique analyses from our community (click or tap to
-          view full analysis)
+          Explore example physique analyses from our community
         </TypographyP>
       </div>
 

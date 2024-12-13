@@ -12,10 +12,10 @@ export function EmptyAnalysisState({ userId }: EmptyAnalysisStateProps) {
   return (
     <div className="max-w-4xl mx-auto space-y-8 flex flex-col items-center justify-center px-4">
       <div className="space-y-4">
-        <TypographyH1 id="page-title" className="text-center px-4">
+        <TypographyH1 id="page-title" className="text-center px-4 text-balance">
           Welcome to the Aesthetic Rank
         </TypographyH1>
-        <TypographyP className="text-muted-foreground text-center px-4">
+        <TypographyP className="text-muted-foreground text-center px-4 text-balance">
           Get a detailed assessment of your physique through our AI-powered
           analysis and discover where you rank among others
         </TypographyP>
