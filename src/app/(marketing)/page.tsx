@@ -14,14 +14,16 @@ export default function Home() {
       <header>
         <Navbar />
       </header>
-      <MarketingHero />
-      <MarketingSampleAnalysis />
-      <MarketingRanks />
-      <MarketingFeatures />
-      <MarketingSteps />
-      <MarketingPricing />
-      <MarketingFaq />
-      <MarketingFooter />
+      <div className="w-full space-y-36 p-2">
+        <MarketingHero />
+        <MarketingSampleAnalysis />
+        <MarketingRanks />
+        <MarketingFeatures />
+        <MarketingSteps />
+        <MarketingPricing />
+        <MarketingFaq />
+        <MarketingFooter />
+      </div>
     </div>
   );
 }

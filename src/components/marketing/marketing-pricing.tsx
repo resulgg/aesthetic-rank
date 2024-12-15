@@ -10,7 +10,10 @@ const MarketingPricing = () => {
       <div className="text-center space-y-4 max-w-3xl mx-auto">
         <TypographyH2>Pricing</TypographyH2>
         <TypographyP className="text-muted-foreground">
-          Discover where you rank with our AI physique analysis
+          Unlock your potential with our AI Physique Analysis! Gain insights
+          into your aesthetic ranking, receive personalized recommendations, and
+          discover your strengths and weaknesses—all for just $9.99. Don&apos;t
+          wait, elevate your fitness journey today!
         </TypographyP>
       </div>
 
@@ -31,21 +34,29 @@ const MarketingPricing = () => {
           </div>
 
           <div className="absolute bottom-0 w-full p-6 space-y-4">
-            <div className="space-y-2">
+            <div className="space-y-4">
               <h3 className="font-semibold text-2xl">AI Physique Analysis</h3>
               <div className="flex items-center gap-3">
                 <span className="text-3xl font-bold">$9.99</span>
+                <span className="text-muted-foreground line-through">
+                  $14.99
+                </span>
+                <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-sm font-medium">
+                  33% OFF
+                </span>
               </div>
-              <p className="text-sm text-muted-foreground">One-time payment</p>
+              <p className="text-sm text-muted-foreground">
+                One-time payment • Limited Time Offer
+              </p>
             </div>
 
             <Button
               asChild
               className="w-full"
               size="lg"
-              data-umami-event="Get Ranked Now"
+              data-umami-event="Get Started Pricing"
             >
-              <Link href="/analysis">Get Ranked</Link>
+              <Link href="/analysis">Get Started</Link>
             </Button>
           </div>
         </div>

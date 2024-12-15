@@ -96,8 +96,15 @@ const ProCard = ({ analysisId }: { analysisId: string }) => {
       </div>
       <CardHeader className="relative z-10 p-2">
         <div className="flex justify-end">
-          <div className="flex items-center gap-3 bg-secondary/50 px-4 py-2 rounded-lg backdrop-blur-sm border border-primary/10">
+          <div className="flex items-center gap-3 bg-secondary/50 px-4 py-3 rounded-lg backdrop-blur-sm border border-primary/10">
             <div className="text-3xl font-bold text-primary">$9.99</div>
+            <div className="h-7 w-[1px] bg-foreground/10"></div>
+            <div className="flex flex-col">
+              <span className="text-sm text-foreground line-through">
+                $14.99
+              </span>
+              <span className="text-xs text-primary font-medium">33% OFF</span>
+            </div>
           </div>
         </div>
       </CardHeader>
@@ -128,7 +135,7 @@ const ProCard = ({ analysisId }: { analysisId: string }) => {
           analysisId={analysisId}
           className="w-full bg-primary hover:opacity-90 transition-opacity"
         >
-          Get Your Analysis
+          Unlock Your Analysis
         </CheckoutButton>
         <p className="text-sm text-center text-muted-foreground px-2 md:px-12">
           One-time payment for a single comprehensive analysis. No recurring

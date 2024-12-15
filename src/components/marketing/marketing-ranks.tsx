@@ -89,7 +89,7 @@ const MarketingRanks = () => {
     <div className="space-y-12 py-8">
       <div className="text-center space-y-4">
         <TypographyH2>Aesthetic Ranking System</TypographyH2>
-        <TypographyP className="text-muted-foreground max-w-2xl mx-auto px-2 md:px-0 text-balance">
+        <TypographyP className="text-muted-foreground max-w-2xl mx-auto text-balance">
           Our sophisticated ranking system evaluates physiques based on multiple
           factors including proportions, symmetry, muscle development, and
           overall aesthetic harmony.
@@ -110,7 +110,7 @@ const MarketingRanks = () => {
         <CarouselContent>
           {Object.entries(rankDescriptions).map(([rank, info]) => (
             <CarouselItem key={rank} className="md:basis-1/2 lg:basis-1/3">
-              <div className="rounded-lg bg-gradient-to-br from-background/80 to-background/60 backdrop-blur-sm overflow-hidden h-full flex flex-col border border-border/40 hover:border-primary/30 transition-all duration-300 group">
+              <div className="rounded-lg bg-gradient-to-br from-background/80 to-background/60 backdrop-blur-sm overflow-hidden h-full flex flex-col border border-border hover:border-primary/40 transition-all duration-300 group">
                 <div className="p-6 border-b border-border/50 bg-background/10">
                   <div className="flex items-center justify-between">
                     <TypographyH2

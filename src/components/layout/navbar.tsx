@@ -19,9 +19,9 @@ const Navbar = async () => {
             variant="default"
             className="h-12 font-semibold"
             asChild
-            data-umami-event="Get Ranked"
+            data-umami-event="Get Started"
           >
-            <Link href="/auth/signup">Get Ranked</Link>
+            <Link href="/auth/signup">Get Started</Link>
           </Button>
         )}
       </div>

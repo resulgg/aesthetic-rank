@@ -19,13 +19,13 @@ const MarketingHero = () => {
           "animate-text-gradient bg-[200%_auto] font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#999999] via-[#808080] to-[#999999] dark:from-[#E8E8E8] dark:via-[#D3D3D3] dark:to-[#E8E8E8] text-4xl md:text-6xl text-center"
         }
       >
-        <span>Discover Your Aesthetic </span>
+        <span>Unlock Your Full Potential with </span>
         <span
           className={
             "inline-block animate-text-gradient bg-[200%_auto] font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#ffd700] via-[#ffb700] to-[#ffd700] dark:from-[#ffd700] dark:via-[#ffb700] dark:to-[#ffd700]"
           }
         >
-          Rank
+          AI Body Analysis
         </span>
       </h1>
       <p className="text-muted-foreground text-center text-sm md:text-lg">
