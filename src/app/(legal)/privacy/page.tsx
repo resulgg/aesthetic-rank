@@ -49,14 +49,14 @@ export default function PrivacyPage() {
             <li>Device information (screen size, device type)</li>
             <li>Browser type</li>
             <li>
-              Page views and interactions (via self-hosted Umami Analytics)
+              Page views and interactions (via self-hosted Plausible Analytics)
             </li>
             <li>Referring website</li>
             <li>Country (derived from anonymized IP)</li>
           </ul>
           <TypographyP className="mt-4 text-sm text-muted-foreground">
             Note: All analytics data is anonymized and collected using our
-            self-hosted Umami Analytics instance, a privacy-focused platform
+            self-hosted Plausible Analytics instance, a privacy-focused platform
             that does not store personal information or use cookies. Analytics
             data never leaves our control and is stored on our own servers.
           </TypographyP>
@@ -192,16 +192,16 @@ export default function PrivacyPage() {
           <TypographyH3>8.2. Analytics:</TypographyH3>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              We use self-hosted Umami Analytics, a privacy-focused analytics
-              platform
+              We use self-hosted Plausible Analytics, a privacy-focused
+              analytics platform
             </li>
             <li>
-              Our Umami instance is hosted on our own servers, ensuring data
+              Our Plausible instance is hosted on our own servers, ensuring data
               stays within our control
             </li>
-            <li>Umami does not use cookies</li>
-            <li>Umami does not collect any personal information</li>
-            <li>Umami does not track users across websites</li>
+            <li>Plausible does not use cookies</li>
+            <li>Plausible does not collect any personal information</li>
+            <li>Plausible does not track users across websites</li>
             <li>All data is anonymized</li>
             <li>IP addresses are not stored</li>
           </ul>

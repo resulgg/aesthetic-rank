@@ -33,7 +33,7 @@ const MarketingHero = () => {
         analysis and discover where you rank among others
       </p>
       <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <Button asChild className="h-14" data-umami-event="View Rankings">
+        <Button asChild className="h-14 plausible-event-name=View+Rankings">
           <Link href="/rankings">View Rankings</Link>
         </Button>
       </div>
