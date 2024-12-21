@@ -3,6 +3,7 @@
 import { useEffect, useState, useTransition } from "react";
 import { checkoutUrl } from "@/actions/checkout";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface CheckoutButtonProps {
   analysisId: string;
@@ -36,8 +37,7 @@ const CheckoutButton = ({
     <Button
       onClick={onClick}
       disabled={isPending || redirectUrl !== null}
-      className={className}
-      data-umami-event="Checkout"
+      className={cn(className, "plausible-event-name=Checkout")}
     >
       {isPending || redirectUrl !== null ? "Loading..." : children}
     </Button>

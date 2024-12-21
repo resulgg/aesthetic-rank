@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import Providers from "@/components/providers";
 import "./globals.css";
-import Script from "next/script";
+import PlausibleProvider from "next-plausible";
 import { Toaster } from "@/components/ui/sonner";
 
 const bricolage = Bricolage_Grotesque({
@@ -29,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
-          src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
-          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-          strategy="afterInteractive"
+        <PlausibleProvider
+          domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN!}
+          customDomain={process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_URL!}
+          trackOutboundLinks={true}
+          taggedEvents={true}
+          selfHosted={true}
         />
         <link
           rel="icon"
