@@ -30,11 +30,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <Script
-          async
-          defer
+          src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
           strategy="afterInteractive"
-          data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN!}
-          src={process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_URL!}
         />
         <link
           rel="icon"

@@ -17,7 +17,8 @@ const Navbar = async () => {
         ) : (
           <Button
             variant="default"
-            className="h-12 font-semibold plausible-event-name=Get+Started"
+            className="h-12 font-semibold"
+            data-umami-event="Get Started"
             asChild
           >
             <Link href="/auth/signup">Get Started</Link>

@@ -52,7 +52,8 @@ const MarketingPricing = () => {
 
             <Button
               asChild
-              className="w-full plausible-event-name=Get+Started+Pricing"
+              className="w-full"
+              data-umami-event="Get Started Pricing"
               size="lg"
             >
               <Link href="/analysis">Get Started</Link>
