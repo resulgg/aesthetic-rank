@@ -32,8 +32,6 @@ export default function RootLayout({
         <PlausibleProvider
           domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN!}
           customDomain={process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_URL!}
-          trackOutboundLinks={true}
-          taggedEvents={true}
           selfHosted={true}
         />
         <link
