@@ -49,7 +49,7 @@ Aesthetic Rank is built using a variety of modern technologies to ensure a robus
 - **Self-Hosted Services**:
 
   - **Coolify**: A self-hosted platform for managing and deploying applications.
-  - **Plausible**: A self-hosted analytics solution for tracking user interactions without compromising privacy.
+  - **Umami**: A self-hosted analytics solution for tracking user interactions without compromising privacy.
 
 - **Deployment**:
 
